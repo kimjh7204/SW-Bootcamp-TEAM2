@@ -20,6 +20,7 @@ public class ItemGet : MonoBehaviour
     void Update()
     {
         CheckItem();
+
         TryAction();
     }
 
@@ -36,6 +37,7 @@ public class ItemGet : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, range, layerMask))
         {
+            Debug.Log(hitInfo);
             if (hitInfo.transform.tag == "Item")
             {
                 ItemInfoAppear();
@@ -49,7 +51,7 @@ public class ItemGet : MonoBehaviour
     {
         pickupActivated = true;
         actionText.gameObject.SetActive(true);
-        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().items.itemName + " È¹µæ " + "<color=yellow>" + "(E)" + "</color>";
+        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().items.itemName + " GET " + "<color=yellow>" + "(E)" + "</color>";
     }
 
     private void ItemInfoDisappear()
