@@ -405,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterBody: {fileID: 247196816}
   cameraArm: {fileID: 1437268323}
+  movespeed: 3
 --- !u!4 &1483085071
 Transform:
   m_ObjectHideFlags: 0
