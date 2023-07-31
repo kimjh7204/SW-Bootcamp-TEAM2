@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 
@@ -23,6 +24,20 @@ public class ItemGet : MonoBehaviour
 
         TryAction();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Item")
+        {
+            other.transform.GetComponent<Rock>().Mining();
+            Debug.Log(other.transform.name);
+        }
+
+    }
+
+
+
+
 
     private void TryAction()
     {
@@ -68,6 +83,7 @@ public class ItemGet : MonoBehaviour
             {
                 Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().items.itemName + " 획득 했습니다.");  // 인벤토리 넣기
                 Destroy(hitInfo.transform.gameObject);
+
                 ItemInfoDisappear();
             }
         }
