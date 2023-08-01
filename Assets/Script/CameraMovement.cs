@@ -18,6 +18,10 @@ public class CameraMovement : MonoBehaviour
     public float minDistance;
     public float maxDistance;
     public float finalDistance;
+    public float smoothness = 10f;
+
+    private Vector3 finalDir; // finalDir 변수를 선언해줍니다.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +35,30 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotX += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        rotX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
         rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
+        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
         Quaternion rot = Quaternion.Euler(rotX, rotY, 0);
         transform.rotation = rot;
+    }
+
+    void LateUpdate()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, objectTofollow.position, followspeed * Time.deltaTime);
+
+        finalDir = transform.TransformPoint(dirNormalized * maxDistance);
+
+        RaycastHit hit;
+
+        if (Physics.Linecast(transform.position, finalDir, out hit))
+        {
+            finalDistance = Mathf.Clamp(hit.distance, minDistance, maxDistance);
+        }
+        else
+        {
+            finalDistance = maxDistance;
+        }
+        realCamera.localPosition = Vector3.Lerp(realCamera.localPosition, dirNormalized * finalDistance, Time.deltaTime * smoothness);
     }
 }
