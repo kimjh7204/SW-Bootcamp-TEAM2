@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Consumption Item
+  - Floor
   layers:
   - Default
   - TransparentFX

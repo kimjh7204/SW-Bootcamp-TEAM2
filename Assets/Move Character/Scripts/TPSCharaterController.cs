@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TPSCharaterController : MonoBehaviour
@@ -7,10 +9,13 @@ public class TPSCharaterController : MonoBehaviour
     [SerializeField] private Transform characterBody;
     [SerializeField] private Transform cameraArm;
 
+    private Rigidbody rigid;
     private Animator animator;
-    public float movespeed = 3f;
+    public float movespeed = 0f;
+    bool isJump = false;
     void Start()
     {
+        rigid = characterBody.GetComponent<Rigidbody>();
         animator = characterBody.GetComponent<Animator>();
     }
 
@@ -19,6 +24,7 @@ public class TPSCharaterController : MonoBehaviour
     {
         LookAround();
         Move();
+        jump();
     }
 
 
@@ -26,18 +32,28 @@ public class TPSCharaterController : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         bool isMove = moveInput.magnitude != 0;
-        animator.SetBool("isMove", isMove);
+        animator.SetFloat("speed", movespeed);
         if (isMove)
         {
+            if (moveInput.x == 0 && Input.GetKey(KeyCode.LeftControl))
+            {
+                movespeed = 6;
+            }
+            else
+            {
+                movespeed = 3;
+            }
+            
             Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
             Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
             Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
-
+            
             characterBody.forward = moveDir;
-            transform.position += moveDir * Time.deltaTime * movespeed;
+            transform.position += moveDir * (Time.deltaTime * movespeed);
         }
-        
-        Debug.DrawRay(cameraArm.position, new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized , Color.red);
+        else movespeed = 0;
+
+        // Debug.DrawRay(cameraArm.position, new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized , Color.red);
     }
     
     private void LookAround()
@@ -56,5 +72,27 @@ public class TPSCharaterController : MonoBehaviour
         }
         
         cameraArm.rotation = Quaternion.Euler(x, camAngle.y + mouseDelta.x, camAngle.z);
+    }
+
+    private void jump()
+    {
+        bool JDown = Input.GetButtonDown("Jump");
+        animator.SetBool("jump", JDown);
+        float jumpPower = 3;
+        
+        if (JDown && !isJump)
+        {
+            rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            animator.SetTrigger("jump");
+            isJump = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = false;
+        }
     }
 }
