@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,10 +9,13 @@ public class TPSCharaterController : MonoBehaviour
     [SerializeField] private Transform characterBody;
     [SerializeField] private Transform cameraArm;
 
+    private Rigidbody rigid;
     private Animator animator;
     public float movespeed = 0f;
+    bool isJump = false;
     void Start()
     {
+        rigid = characterBody.GetComponent<Rigidbody>();
         animator = characterBody.GetComponent<Animator>();
     }
 
@@ -20,6 +24,7 @@ public class TPSCharaterController : MonoBehaviour
     {
         LookAround();
         Move();
+        jump();
     }
 
 
@@ -69,14 +74,25 @@ public class TPSCharaterController : MonoBehaviour
         cameraArm.rotation = Quaternion.Euler(x, camAngle.y + mouseDelta.x, camAngle.z);
     }
 
-    // private void jump()
-    // {
-    //     bool isJump = Input.GetKeyDown(KeyCode.Space);
-    //     animator.SetBool("isJump", isJump);
-    //
-    //     if (isJump)
-    //     {
-    //         
-    //     }
-    // }
+    private void jump()
+    {
+        bool JDown = Input.GetButtonDown("Jump");
+        animator.SetBool("jump", JDown);
+        float jumpPower = 3;
+        
+        if (JDown && !isJump)
+        {
+            rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            animator.SetTrigger("jump");
+            isJump = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = false;
+        }
+    }
 }
