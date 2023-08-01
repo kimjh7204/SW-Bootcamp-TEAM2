@@ -50,6 +50,7 @@ public class TPSCharaterController : MonoBehaviour
             
             characterBody.forward = moveDir;
             transform.position += moveDir * (Time.deltaTime * movespeed);
+            cameraArm.position = characterBody.position;
         }
         else movespeed = 0;
 
