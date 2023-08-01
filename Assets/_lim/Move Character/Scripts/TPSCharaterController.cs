@@ -12,7 +12,9 @@ public class TPSCharaterController : MonoBehaviour
     private Rigidbody rigid;
     private Animator animator;
     public float movespeed = 0f;
-    bool isJump = false;
+    public bool JDown;
+    public bool isJump = false;
+    
     void Start()
     {
         rigid = characterBody.GetComponent<Rigidbody>();
@@ -35,7 +37,7 @@ public class TPSCharaterController : MonoBehaviour
         animator.SetFloat("speed", movespeed);
         if (isMove)
         {
-            if (moveInput.x == 0 && Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 movespeed = 6;
             }
@@ -77,9 +79,8 @@ public class TPSCharaterController : MonoBehaviour
 
     private void jump()
     {
-        bool JDown = Input.GetButtonDown("Jump");
-        animator.SetBool("jump", JDown);
-        float jumpPower = 3;
+        JDown = Input.GetButtonDown("Jump");
+        float jumpPower = 2.5f;
         
         if (JDown && !isJump)
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attackable : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
