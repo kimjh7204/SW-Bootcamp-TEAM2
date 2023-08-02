@@ -1,0 +1,8 @@
+diff a/Assets/_TerrainAutoUpgrade.meta b/Assets/_TerrainAutoUpgrade.meta	(rejected hunks)
+@@ -1,5 +1,5 @@
+ fileFormatVersion: 2
+-guid: 77dd5e8499e163347b4be0b4f6b7876e
++guid: ac610c6c845349c44aea846085449b18
+ folderAsset: yes
+ DefaultImporter:
+   externalObjects: {}
