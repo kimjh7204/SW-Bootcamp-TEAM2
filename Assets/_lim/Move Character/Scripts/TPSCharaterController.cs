@@ -80,21 +80,25 @@ public class TPSCharaterController : MonoBehaviour
     private void jump()
     {
         JDown = Input.GetButtonDown("Jump");
-        float jumpPower = 2.5f;
+        float jumpPower = 3f;
         
         if (JDown && !isJump)
         {
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             animator.SetTrigger("jump");
-            isJump = true;
+            //isJump = true;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isJump = false;
-        }
+        if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
+        isJump = false;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
+        isJump = true;
     }
 }
