@@ -12,7 +12,9 @@ public class TPSCharaterController : MonoBehaviour
     private Rigidbody rigid;
     private Animator animator;
     public float movespeed = 0f;
-    bool isJump = false;
+    public bool JDown;
+    public bool isJump = false;
+    
     void Start()
     {
         rigid = characterBody.GetComponent<Rigidbody>();
@@ -35,7 +37,7 @@ public class TPSCharaterController : MonoBehaviour
         animator.SetFloat("speed", movespeed);
         if (isMove)
         {
-            if (moveInput.x == 0 && Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 movespeed = 6;
             }
@@ -77,23 +79,26 @@ public class TPSCharaterController : MonoBehaviour
 
     private void jump()
     {
-        bool JDown = Input.GetButtonDown("Jump");
-        animator.SetBool("jump", JDown);
-        float jumpPower = 3;
+        JDown = Input.GetButtonDown("Jump");
+        float jumpPower = 3f;
         
         if (JDown && !isJump)
         {
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             animator.SetTrigger("jump");
-            isJump = true;
+            //isJump = true;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isJump = false;
-        }
+        if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
+        isJump = false;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
+        isJump = true;
     }
 }
