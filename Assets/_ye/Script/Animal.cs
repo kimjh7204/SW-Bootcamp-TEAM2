@@ -28,8 +28,6 @@ public class Animal : MonoBehaviour
 
     // 필요한 컴포넌트
     [SerializeField] protected Animator anim;
-    [SerializeField] protected Rigidbody rigid;
-    [SerializeField] protected BoxCollider boxCol;
     protected AudioSource theAudio;
 
     [SerializeField] protected AudioClip[] sound_Normal;
@@ -61,9 +59,26 @@ public class Animal : MonoBehaviour
     protected void Move()
     {
         if (isWalking || isRunning)
-            nav.SetDestination(transform.position + destination * 5f);
+        {
+            Vector3 randomPosition = GetRandomPositionOnNavMesh();
+            nav.SetDestination(randomPosition);
+        }
 
-        //rigid.MovePosition(transform.position + transform.forward * applySpeed * Time.deltaTime);
+    }
+    Vector3 GetRandomPositionOnNavMesh()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * 20f;
+        randomDirection += transform.position;
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, 20f, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        else
+        {
+            return transform.position;
+        }
     }
 
     protected void ElapseTime()
