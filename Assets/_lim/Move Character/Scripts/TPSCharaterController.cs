@@ -11,9 +11,10 @@ public class TPSCharaterController : MonoBehaviour
 
     private Rigidbody rigid;
     private Animator animator;
-    public float movespeed = 0f;
-    public bool JDown;
-    public bool isJump = false;
+    private float movespeed = 0f;
+    private bool JDown;
+    private bool isJump = false;
+    private bool isDeath = false;
     
     void Start()
     {
@@ -24,9 +25,13 @@ public class TPSCharaterController : MonoBehaviour
     
     void Update()
     {
+        if (!isDeath)
+        {
+            Move();
+            jump();
+            OnDeath();
+        }
         LookAround();
-        Move();
-        jump();
     }
 
 
@@ -52,7 +57,7 @@ public class TPSCharaterController : MonoBehaviour
             
             characterBody.forward = moveDir;
             transform.position += moveDir * (Time.deltaTime * movespeed);
-            cameraArm.position = characterBody.position;
+            
         }
         else movespeed = 0;
 
@@ -75,6 +80,7 @@ public class TPSCharaterController : MonoBehaviour
         }
         
         cameraArm.rotation = Quaternion.Euler(x, camAngle.y + mouseDelta.x, camAngle.z);
+        cameraArm.position = characterBody.position;
     }
 
     private void jump()
@@ -100,5 +106,14 @@ public class TPSCharaterController : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
         isJump = true;
+    }
+    
+    private void OnDeath()
+    {
+        if (HPBar.curHp <= 0)
+        {
+            isDeath = true;
+            animator.SetTrigger("death");
+        }
     }
 }

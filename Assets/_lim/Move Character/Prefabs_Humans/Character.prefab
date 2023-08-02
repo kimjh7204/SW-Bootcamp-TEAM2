@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 4540229000190281644}
   - component: {fileID: 5459070370085305689}
   - component: {fileID: 6231016095957215818}
-  - component: {fileID: 1768536130995268252}
+  - component: {fileID: 3463420785476940584}
   - component: {fileID: 5944842690049987883}
   - component: {fileID: 3151608749114327992}
   m_Layer: 0
@@ -1052,8 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterBody: {fileID: 1438546959266459337}
   cameraArm: {fileID: 403187210694073453, guid: 389543d6831fbbf41a2b547f2d981cbf, type: 3}
-  movespeed: 0
-  JDown: 0
+  isDeath: 0
 --- !u!114 &6231016095957215818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,7 +1066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4540229000190281644}
---- !u!114 &1768536130995268252
+--- !u!114 &3463420785476940584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,11 +1075,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782702501690864755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7ad6eff3730c04088eefa666bffef9, type: 3}
+  m_Script: {fileID: 11500000, guid: b199e4ad14e804a4e8a480f503497751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterBody: {fileID: 1438546959266459337}
-  JDown: 0
+  animator: {fileID: 4540229000190281644}
 --- !u!54 &5944842690049987883
 Rigidbody:
   m_ObjectHideFlags: 0

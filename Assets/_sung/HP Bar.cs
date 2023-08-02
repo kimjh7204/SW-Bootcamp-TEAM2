@@ -8,8 +8,8 @@ public class HPBar : MonoBehaviour
     [SerializeField]
     private Slider hpbar;
 
-    private float maxHp = 100;
-    private float curHp = 100;
+    public float maxHp = 100;
+    public static float curHp = 100;
 
     // Start is called before the first frame update
     void Start()
