@@ -58,7 +58,7 @@ public class Gathering : MonoBehaviour
     private void ItemInfoDisappear()
     {
         pickupActivated = false;
-        actionText.gameObject.SetActive(false);
+        //actionText.gameObject.SetActive(false);
     }
 
     private void CanPickUp()
