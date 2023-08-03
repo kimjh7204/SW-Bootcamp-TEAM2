@@ -29,20 +29,17 @@ public class Chick : WeakAnimal
     private void Wait()  // 대기
     {
         currentTime = waitTime;
-        Debug.Log("대기");
     }
 
     private void Eat()  // 풀 뜯기
     {
         currentTime = waitTime;
         anim.SetTrigger("Eat");
-        Debug.Log("풀 뜯기");
     }
 
     private void Peek()  // 두리번
     {
         currentTime = waitTime;
         anim.SetTrigger("Peek");
-        Debug.Log("두리번");
     }
 }
