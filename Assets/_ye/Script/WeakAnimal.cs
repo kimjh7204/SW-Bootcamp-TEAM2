@@ -12,7 +12,6 @@ public class WeakAnimal : Animal
         isWalking = false;
         isRunning = true;
         nav.speed = runSpeed;
-
         anim.SetBool("Running", isRunning);
     }
 

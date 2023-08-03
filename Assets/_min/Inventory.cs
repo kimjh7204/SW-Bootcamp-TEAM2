@@ -14,11 +14,11 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject go_SlotParent;
 
-    private Slot[] slots;
+    private FieldItems[] slots;
     // Start is called before the first frame update
     void Start()
     {
-        slots = go_SlotParent.GetComponentsInChildren<Slot>();
+        slots = go_SlotParent.GetComponentsInChildren<FieldItems>();
     }
 
     // Update is called once per frame
@@ -49,27 +49,8 @@ public class Inventory : MonoBehaviour
         go_inventoryUI.SetActive(false); 
     }
 
-    public void AcquireItem(Items _item, int _count)
+    public void AcquireItem(Item _item)
     {
-        if(Items.ItemType.Equipment != _item.itemType)
-        {
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if(slots[i].item.itemName == _item.itemName)
-                {
-                    slots[i].SetSlotCount(_count);
-                    return;
-                }
-            }
-        }
 
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if(slots[i].item.itemName == "")
-            {
-                slots[i].Additem(_item, _count);
-                return;
-            }
-        }
     }
 }
