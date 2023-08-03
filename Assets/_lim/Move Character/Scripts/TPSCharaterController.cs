@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class TPSCharaterController : MonoBehaviour
 {
-    [SerializeField] private Transform characterBody;
     [SerializeField] private Transform cameraArm;
-
+    [SerializeField] private Collider AttackRange;
+    
+    private Collider attackCollider;
     private Rigidbody rigid;
     private Animator animator;
     private float movespeed = 0f;
@@ -18,8 +19,10 @@ public class TPSCharaterController : MonoBehaviour
     
     void Start()
     {
-        rigid = characterBody.GetComponent<Rigidbody>();
-        animator = characterBody.GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        attackCollider = AttackRange.GetComponent<Collider>();
+        attackCollider.enabled = false;
     }
 
     
@@ -30,8 +33,11 @@ public class TPSCharaterController : MonoBehaviour
             Move();
             jump();
             OnDeath();
+            Attack();
+            
         }
         LookAround();
+        
     }
 
 
@@ -50,13 +56,16 @@ public class TPSCharaterController : MonoBehaviour
             {
                 movespeed = 3;
             }
-            
-            Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
-            Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
+
+            var forward = cameraArm.forward;
+            Vector3 lookForward = new Vector3(forward.x, 0f, forward.z).normalized;
+            var right = cameraArm.right;
+            Vector3 lookRight = new Vector3(right.x, 0f, right.z).normalized;
             Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
-            
-            characterBody.forward = moveDir;
-            transform.position += moveDir * (Time.deltaTime * movespeed);
+
+            var transform1 = transform;
+            transform1.forward = moveDir;
+            transform1.position += moveDir * (Time.deltaTime * movespeed);
             
         }
         else movespeed = 0;
@@ -80,7 +89,7 @@ public class TPSCharaterController : MonoBehaviour
         }
         
         cameraArm.rotation = Quaternion.Euler(x, camAngle.y + mouseDelta.x, camAngle.z);
-        cameraArm.position = characterBody.position;
+        cameraArm.position = transform.position;
     }
 
     private void jump()
@@ -96,6 +105,24 @@ public class TPSCharaterController : MonoBehaviour
         }
     }
 
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("attack");
+            attackCollider.enabled = true;
+        }
+    }
+    
+    private void OnDeath()
+    {
+        if (HPBar.curHp <= 0)
+        {
+            isDeath = true;
+            animator.SetTrigger("death");
+        }
+    }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
@@ -108,12 +135,4 @@ public class TPSCharaterController : MonoBehaviour
         isJump = true;
     }
     
-    private void OnDeath()
-    {
-        if (HPBar.curHp <= 0)
-        {
-            isDeath = true;
-            animator.SetTrigger("death");
-        }
-    }
 }
