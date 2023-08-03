@@ -1,16 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Attackable : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
-
+    private Collider attackCollider;
+    
+    void Start()
+    {
+        attackCollider = GetComponent<Collider>();
+    }
+    
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && HPBar.curHp > 0)
-        {
-            animator.SetTrigger("attack");
-        }
+        
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        // enemy = GetComponent<Enemy>();
+        // if(enemy != null) enemy._hp -= 10;
+        attackCollider.enabled = false;
+    }
+
+    // IEnumerator AttackDelay()
+    // {
+    //     
+    // }
 }
