@@ -103,9 +103,8 @@ public class Animal : MonoBehaviour
         anim.SetBool("Running", isRunning);
         nav.speed = walkSpeed;
 
-        destination.Set(Random.Range(-0.2f, 0.2f), 0f, Random.Range(0.5f, 1f));
     }
-
+    
     protected void TryWalk()  // °È±â
     {
         currentTime = walkTime;
@@ -156,4 +155,6 @@ public class Animal : MonoBehaviour
         theAudio.Play();
     }
 }
+
+//hitInfo.transform.GetComponent<Animal>().Damage(//damage, //transform.position);
 
