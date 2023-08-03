@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class FieldItems : MonoBehaviour
 {
-    public Item item;
-    public SpriteRenderer image;
+    // public Item item;
+    // public SpriteRenderer image;
 
-    public void SetItem(Item _item)
-    {
-        item.itemName = _item.itemName;
-        item.itemimage = _item.itemimage;
-        item.itemType = _item.itemType;
+    // public void SetItem(Item _item)
+    // {
+    //     item.itemName = _item.itemName;
+    //     item.itemImage = _item.itemimage;
+    //     item.itemType = _item.itemType;
 
-        image.sprite = item.itemimage;
-    }
+    //     image.sprite = item.itemimage;
+    // }
 
-    public Item GetItem()
-    {
-        return item;
-    }
+    // public Item GetItem()
+    // {
+    //     return item;
+    // }
 
-    public void DestroyItem()
-    {
-        Destroy(gameObject);
-    }
+    // public void DestroyItem()
+    // {
+    //     Destroy(gameObject);
+    // }
 }
