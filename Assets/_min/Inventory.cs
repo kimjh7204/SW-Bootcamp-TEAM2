@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
         go_inventoryUI.SetActive(false); 
     }
 
-    public void AcquireItem(Item _item)
+    public void AcquireItem(Items _item)
     {
 
     }
