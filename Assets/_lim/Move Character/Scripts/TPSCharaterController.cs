@@ -39,6 +39,7 @@ public class TPSCharaterController : MonoBehaviour
         LookAround();
         
     }
+    
 
 
     private void Move()
@@ -110,8 +111,14 @@ public class TPSCharaterController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("attack");
-            attackCollider.enabled = true;
+            StartCoroutine(AttackDelay());
         }
+    }
+    
+    IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(0.8f);
+        attackCollider.enabled = true;
     }
     
     private void OnDeath()
@@ -134,5 +141,7 @@ public class TPSCharaterController : MonoBehaviour
         if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
         isJump = true;
     }
+
+    
     
 }
