@@ -9,7 +9,7 @@ public class Goat : WeakAnimal
         base.ReSet();
         RandomAction();
     }
-
+    
     private void RandomAction()
     {
         RandomSound();

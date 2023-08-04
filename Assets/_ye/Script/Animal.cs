@@ -141,6 +141,7 @@ public class Animal : MonoBehaviour
         isDead = true;
 
         anim.SetTrigger("Dead");
+
     }
 
     protected void RandomSound()
