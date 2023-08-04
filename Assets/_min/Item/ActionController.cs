@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ActionController : MonoBehaviour
 {
-    [SerializeField] private float range;
-
     private bool pickupActivated = false;
 
     [SerializeField] private float radius;

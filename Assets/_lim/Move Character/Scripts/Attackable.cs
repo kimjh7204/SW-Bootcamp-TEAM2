@@ -20,8 +20,6 @@ public class Attackable : MonoBehaviour
             var enemy = collider.transform.GetComponent<Animal>();
             enemy.Damage(dmg, transform.position);
         }
-        
-        attackCollider.enabled = false;
     }
     
     // IEnumerator AttackDelay()
