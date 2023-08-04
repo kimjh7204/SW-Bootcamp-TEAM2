@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Consumption Item
   - Floor
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - player
   - floor
   - Animal
-  - 
+  - Item
   - 
   - 
   - 
