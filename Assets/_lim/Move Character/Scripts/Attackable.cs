@@ -17,11 +17,10 @@ public class Attackable : MonoBehaviour
     {
         if (collider != null)
         {
-            var enemy = GetComponent<Animal>();
+            var enemy = collider.transform.GetComponent<Animal>();
             enemy.Damage(dmg, transform.position);
         }
         
-        // StartCoroutine(AttackDelay());
         attackCollider.enabled = false;
     }
     
