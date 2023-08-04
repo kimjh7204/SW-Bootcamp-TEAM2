@@ -11009,7 +11009,7 @@ MonoBehaviour:
   runSpeed: 2
   turningSpeed: 2
   walkTime: 3
-  waitTime: 5
+  waitTime: 2
   runTime: 2
   anim: {fileID: 816457384}
   sound_Normal:

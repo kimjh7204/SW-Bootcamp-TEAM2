@@ -66,13 +66,13 @@ public class Goat : WeakAnimal
 
     private void Seat()
     {
-        currentTime = waitTime;
+        currentTime = 5.5f;
         anim.SetTrigger("Seat");
     }
 
     private void Peek()
     {
-        currentTime = waitTime;
+        currentTime = 2f;
         var runIdx = Random.Range(0, 2);
         anim.SetInteger("PeekIdx", runIdx);
         anim.SetTrigger("Peek");
@@ -80,13 +80,13 @@ public class Goat : WeakAnimal
 
     private void BackStep()
     {
-        currentTime = waitTime;
+        currentTime = 1.5f;
         anim.SetTrigger("BackStep");
     }
 
     private void Eat()
     {
-        currentTime = waitTime;
+        currentTime = 4.5f;
         anim.SetTrigger("Eat");
     }
 
