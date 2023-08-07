@@ -21,18 +21,16 @@ public class Rock : MonoBehaviour
     [SerializeField]
     private GameObject go_effect_prefabs;  // 채굴 이펙트 효과로 사용할 깨진 바위 오브젝트.
 
+
     [SerializeField]
-    private AudioSource audioSource;
+    private string strike_Sound;
     [SerializeField]
-    private AudioClip effect_sound_1;  // 바위 때릴 때 사운드
-    [SerializeField]
-    private AudioClip effect_sound_2;  // 바위가 파괴될 때 사운드
+    private string destroy_Sound;
 
 
     public void Mining()
     {
-        audioSource.clip = effect_sound_1;
-        audioSource.Play();
+        SoundManager.instance.PlaySE(strike_Sound);
 
         GameObject clone = Instantiate(go_effect_prefabs, col.bounds.center, Quaternion.identity);
         Destroy(clone, destroyTime);
@@ -45,8 +43,8 @@ public class Rock : MonoBehaviour
     private void Destruction()
     {
         // 바위가 파괴될 때 effect_sound_2 오디오 클립 재생
-        audioSource.clip = effect_sound_2;
-        audioSource.Play();
+        SoundManager.instance.PlaySE(destroy_Sound);
+
 
         col.enabled = false;
         Destroy(go_rock);

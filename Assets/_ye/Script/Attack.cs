@@ -15,10 +15,15 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider != null)
+        if (collider.tag == "Animal")
         {
 
             collider.transform.GetComponent<Animal>().Damage(dmg, transform.position);
+        }
+
+        else if (collider.tag == "Rock")
+        {
+            collider.transform.GetComponent<Rock>().Mining();
         }
 
         // StartCoroutine(AttackDelay());

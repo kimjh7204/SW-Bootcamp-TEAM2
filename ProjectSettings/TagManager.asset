@@ -7,6 +7,8 @@ TagManager:
   - Consumption Item
   - Floor
   - Item
+  - Rock
+  - Animal
   layers:
   - Default
   - TransparentFX
