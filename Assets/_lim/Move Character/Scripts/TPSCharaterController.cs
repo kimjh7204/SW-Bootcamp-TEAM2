@@ -16,7 +16,7 @@ public class TPSCharaterController : MonoBehaviour
     private bool JDown;
     private bool isJump = false;
     private bool isDeath = false;
-    private bool isHit = false;
+    public bool isHit = false;
     
     void Start()
     {
@@ -118,9 +118,9 @@ public class TPSCharaterController : MonoBehaviour
     
     IEnumerator AttackDelay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
         attackCollider.enabled = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
         attackCollider.enabled = false;
         isHit = false;
     }
