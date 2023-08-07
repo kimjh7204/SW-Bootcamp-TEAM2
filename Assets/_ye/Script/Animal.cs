@@ -146,7 +146,7 @@ public class Animal : MonoBehaviour
 
     protected void RandomSound()
     {
-        int _random = Random.Range(0, 3);  // 돼지의 일상 사운드는 3 개
+        int _random = Random.Range(0, sound_Normal.Length);  // 돼지의 일상 사운드는 3 개
         PlaySE(sound_Normal[_random]);
     }
 
@@ -157,5 +157,4 @@ public class Animal : MonoBehaviour
     }
 }
 
-//hitInfo.transform.GetComponent<Animal>().Damage(//damage, //transform.position);
 
