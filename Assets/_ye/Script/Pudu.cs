@@ -12,7 +12,6 @@ public class Pudu : WeakAnimal
 
     private void RandomAction()
     {
-        RandomSound();
 
         int _random = Random.Range(0, 7); 
 
