@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7947500322924989657}
   - component: {fileID: 7155802949818524543}
   - component: {fileID: 8078942254657885633}
-  - component: {fileID: 2785767500860976774}
+  - component: {fileID: 3099518594957688686}
   m_Layer: 9
   m_Name: Tree
   m_TagString: Item
@@ -145,7 +145,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2785767500860976774
+--- !u!114 &3099518594957688686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

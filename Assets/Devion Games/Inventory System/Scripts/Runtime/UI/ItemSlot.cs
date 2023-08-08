@@ -104,8 +104,8 @@ namespace DevionGames.InventorySystem
         {
             if (Input.GetKeyDown(m_UseKey) && !UnityTools.IsPointerOverUI())
             {
-                if(!(this.m_IsMouseKey && TriggerRaycaster.IsPointerOverTrigger()))
-                    Use();
+                //if(!(this.m_IsMouseKey && TriggerRaycaster.IsPointerOverTrigger()))
+                    //Use();
             }
             if (Container != null && Container.IsVisible)
             {
