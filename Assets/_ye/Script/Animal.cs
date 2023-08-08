@@ -142,6 +142,9 @@ public class Animal : MonoBehaviour
 
         anim.SetTrigger("Dead");
 
+        GetComponent<AnimalDeath>().ItemDrop();
+        Destroy(this);
+
     }
 
     protected void RandomSound()
