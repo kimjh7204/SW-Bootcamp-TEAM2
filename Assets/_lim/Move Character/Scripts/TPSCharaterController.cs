@@ -16,7 +16,11 @@ public class TPSCharaterController : MonoBehaviour
     private bool JDown;
     private bool isJump = false;
     private bool isDeath = false;
-    public bool isHit = false;
+    private bool isHit = false;
+
+    public bool punchReady = true;
+    public bool axeReady = false;
+    public bool pickaxeReady = false;
     
     void Start()
     {
@@ -35,6 +39,7 @@ public class TPSCharaterController : MonoBehaviour
             jump();
             OnDeath();
             Attack();
+            ChoseTools();
         }
         LookAround();
         
@@ -106,12 +111,46 @@ public class TPSCharaterController : MonoBehaviour
         }
     }
 
+    private void ChoseTools()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            punchReady = true;
+            axeReady = false;
+            pickaxeReady = false;
+            animator.SetBool("istool", false);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            punchReady = false;
+            axeReady = true;
+            pickaxeReady = false;
+            animator.SetBool("istool", true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            punchReady = false;
+            axeReady = false;
+            pickaxeReady = true;
+            animator.SetBool("istool", true);
+        }
+    }
+
     private void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && !isHit)
+        if (Input.GetMouseButtonDown(0) && !isHit && punchReady)
         {
             isHit = true;
             animator.SetTrigger("attack");
+            StartCoroutine(AttackDelay());
+        }
+        
+        if (Input.GetMouseButtonDown(0) && !isHit && !punchReady)
+        {
+            isHit = true;
+            animator.SetTrigger("toolAT");
             StartCoroutine(AttackDelay());
         }
     }
