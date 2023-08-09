@@ -5,21 +5,21 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     [SerializeField]
-    private int hp; // ¹ÙÀ§ÀÇ Ã¼·Â. 0 ÀÌ µÇ¸é ÆÄ±«µÊ
+    private int hp; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½. 0 ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½
 
     [SerializeField]
-    private int destroyTime; // ÆÄ±«µÈ ¹ÙÀ§ÀÇ ÆÄÆíµéÀÇ »ý¸í (ÀÌ ½Ã°£ÀÌ Áö³ª¸é Destroy)
+    private int destroyTime; // ï¿½Ä±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Destroy)
 
     [SerializeField]
-    private SphereCollider col; // ±¸Ã¼ ÄÝ¶óÀÌ´õ. ¹ÙÀ§ ÆÄ±«½ÃÅ°¸é ºñÈ°¼ºÈ­½ÃÅ³ °Í.
+    private SphereCollider col; // ï¿½ï¿½Ã¼ ï¿½Ý¶ï¿½ï¿½Ì´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½ï¿½Å³ ï¿½ï¿½.
 
     [SerializeField]
-    private GameObject go_rock;  // ÀÏ¹Ý ¹ÙÀ§ ¿ÀºêÁ§Æ®. Æò¼Ò¿¡ È°¼ºÈ­, ¹ÙÀ§ ±úÁö¸é ºñÈ°¼ºÈ­
+    private GameObject go_rock;  // ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®. ï¿½ï¿½Ò¿ï¿½ È°ï¿½ï¿½È­, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
     [SerializeField]
-    private GameObject go_debris;  // ±úÁø ¹ÙÀ§ ¿ÀºêÁ§Æ®. Æò¼Ò¿¡ ºñÈ°¼ºÈ­, ¹ÙÀ§ ±úÁö¸é È°¼ºÈ­
+    private GameObject go_debris;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®. ï¿½ï¿½Ò¿ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
 
     [SerializeField]
-    private GameObject go_effect_prefabs;  // Ã¤±¼ ÀÌÆåÆ® È¿°ú·Î »ç¿ëÇÒ ±úÁø ¹ÙÀ§ ¿ÀºêÁ§Æ®.
+    private GameObject go_effect_prefabs;  // Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
 
     [SerializeField]
@@ -42,7 +42,7 @@ public class Rock : MonoBehaviour
 
     private void Destruction()
     {
-        // ¹ÙÀ§°¡ ÆÄ±«µÉ ¶§ effect_sound_2 ¿Àµð¿À Å¬¸³ Àç»ý
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ ï¿½ï¿½ effect_sound_2 ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½
         SoundManager.instance.PlaySound(destroy_Sound);
 
 
