@@ -82,13 +82,12 @@ MonoBehaviour:
   walkTime: 2
   waitTime: 2
   runTime: 2
+  deadTime: 0
   anim: {fileID: 9030605301170042851}
   sound_Normal:
-  - {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
-  - {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
-  - {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
-  sound_Hurt: {fileID: 8300000, guid: 7e9ee6dc04a5d40d1a5dfc4beb9865e7, type: 3}
-  sound_Dead: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
+  - {fileID: 8300000, guid: 41a36f40cd32da94db4fd5e7a8762405, type: 3}
+  sound_Hurt: Chick_Nomal
+  sound_Dead: Chick_Nomal
 --- !u!82 &3275450795993086488
 AudioSource:
   m_ObjectHideFlags: 0
