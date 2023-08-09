@@ -24,6 +24,7 @@ public class Animal : MonoBehaviour
     [SerializeField] protected float walkTime;  // 걷기 시간
     [SerializeField] protected float waitTime;  // 대기 시간
     [SerializeField] protected float runTime;  // 뛰기 시간
+    [SerializeField] protected float deadTime; //사망 시간
     protected float currentTime;
 
     // 필요한 컴포넌트
@@ -31,8 +32,8 @@ public class Animal : MonoBehaviour
     protected AudioSource theAudio;
 
     [SerializeField] protected AudioClip[] sound_Normal;
-    [SerializeField] protected AudioClip sound_Hurt;
-    [SerializeField] protected AudioClip sound_Dead;
+    [SerializeField] protected string sound_Hurt;
+    [SerializeField] protected string sound_Dead;
 
     protected Vector3 destination;  // 목적지
 
@@ -54,6 +55,7 @@ public class Animal : MonoBehaviour
             Move();
             ElapseTime();
         }
+       
     }
 
     protected void Move()
@@ -126,25 +128,47 @@ public class Animal : MonoBehaviour
                 return;
             }
 
-            PlaySE(sound_Hurt);
+            SoundManager.instance.PlaySound(sound_Hurt);
             anim.SetTrigger("Hurt");
-            // Run(_targetPos);
         }
     }
 
     protected void Dead()
     {
-        PlaySE(sound_Dead);
+        SoundManager.instance.PlaySound(sound_Dead);
 
         isWalking = false;
         isRunning = false;
         isDead = true;
-
+        anim.SetBool("Running", isRunning);
         anim.SetTrigger("Dead");
 
-        GetComponent<AnimalDeath>().ItemDrop();
-        Destroy(this.gameObject);
+        Invoke("ItemSpawn", deadTime + 2f);
 
+    }
+
+    private void ItemSpawn()
+    {
+        GetComponent<AnimalDeath>().ItemDrop(this.transform);
+        this.gameObject.SetActive(false);
+        Respawn();
+    }
+
+    private void Respawn()
+    {
+        if (gameObject.activeSelf == false)
+        {
+            isDead = false;
+            Vector3 randomPosition = GetRandomPositionOnNavMesh();
+            this.gameObject.transform.position = randomPosition;
+            anim.SetTrigger("Reset");
+            hp = 15;
+            this.gameObject.SetActive(true);
+            ReSet();
+
+
+
+        }
     }
 
     protected void RandomSound()
