@@ -13,13 +13,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     [SerializeField] private TextMeshProUGUI text_Count;
     [SerializeField] private GameObject go_Countimage;
+    [SerializeField] private RectTransform baseRect;
+    [SerializeField] RectTransform quickSlotBaseRect;
 
     // private WeaponManager theWeaponManager;
 
-    // void Start()
-    // {
-    //     theWeaponManager = FindObjectOfType<WeaponManger>();
-    // }
+    void Start()
+    {
+        // theInputNumber = FindObjectOfType<InputNumber>();
+        // theItemEffectDatabase = FindObjectOfType<ItemEffectDatabase>();
+        // //theWeaponManager = FindObjectOfType<WeaponManger>();
+    }
 
     private void SetColor(float _alpha)
     {

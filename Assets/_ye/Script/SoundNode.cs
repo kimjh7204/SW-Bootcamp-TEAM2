@@ -26,7 +26,7 @@ public class SoundNode : MonoBehaviour
     private IEnumerator WaitForSoundEnd()
     {
         yield return new WaitWhile(() => audioSource.isPlaying);
-        //lamda expression + ÀÍ¸í ¸Þ¼­µå
+        //lamda expression + ï¿½Í¸ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 
         SoundManager.instance.EnqueueNode(this);
     }

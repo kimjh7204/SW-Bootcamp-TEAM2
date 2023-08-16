@@ -11,6 +11,8 @@ TagManager:
   - Animal
   - Fire
   - Tool
+  - Portal
+  - Character
   layers:
   - Default
   - TransparentFX
