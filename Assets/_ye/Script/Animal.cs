@@ -35,6 +35,8 @@ public class Animal : MonoBehaviour
     [SerializeField] protected string sound_Hurt;
     [SerializeField] protected string sound_Dead;
 
+    
+
     protected Vector3 destination;  // 목적지
 
     // 필요한 컴포넌트
@@ -67,7 +69,7 @@ public class Animal : MonoBehaviour
         }
 
     }
-    Vector3 GetRandomPositionOnNavMesh()
+    public Vector3 GetRandomPositionOnNavMesh()
     {
         Vector3 randomDirection = Random.insideUnitSphere * 20f;
         randomDirection += transform.position;
@@ -137,13 +139,16 @@ public class Animal : MonoBehaviour
     {
         SoundManager.instance.PlaySound(sound_Dead);
 
+        nav.enabled = false;
         isWalking = false;
         isRunning = false;
         isDead = true;
         anim.SetBool("Running", isRunning);
         anim.SetTrigger("Dead");
 
+        nav.velocity = Vector3.zero;
         Invoke("ItemSpawn", deadTime + 2f);
+
 
     }
 
@@ -158,9 +163,11 @@ public class Animal : MonoBehaviour
     {
         if (gameObject.activeSelf == false)
         {
+
             isDead = false;
             Vector3 randomPosition = GetRandomPositionOnNavMesh();
             this.gameObject.transform.position = randomPosition;
+            nav.enabled = true;
             anim.SetTrigger("Reset");
             hp = 15;
             this.gameObject.SetActive(true);

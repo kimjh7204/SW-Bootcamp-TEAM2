@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AnimalDeath : MonoBehaviour
 {
-    [SerializeField] GameObject[] dropItem;
-
+    [SerializeField] protected GameObject[] dropItem;
+    [SerializeField] protected ParticleSystem ps;
 
     public void ItemDrop(Transform transform)
     {
@@ -24,4 +24,13 @@ public class AnimalDeath : MonoBehaviour
         }
     }
 
+
+    public void DeathEffect()
+    {
+        ps.Play();
+        ps.Stop();
+        
+    }
+
 }
+
