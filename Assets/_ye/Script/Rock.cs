@@ -5,21 +5,21 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     [SerializeField]
-    private int hp; // ������ ü��. 0 �� �Ǹ� �ı���
+    private int hp; 
 
     [SerializeField]
-    private int destroyTime; // �ı��� ������ ������� ���� (�� �ð��� ������ Destroy)
+    private int destroyTime; 
 
     [SerializeField]
-    private SphereCollider col; // ��ü �ݶ��̴�. ���� �ı���Ű�� ��Ȱ��ȭ��ų ��.
+    private SphereCollider col; 
 
     [SerializeField]
-    private GameObject go_rock;  // �Ϲ� ���� ������Ʈ. ��ҿ� Ȱ��ȭ, ���� ������ ��Ȱ��ȭ
+    private GameObject go_rock;  
     [SerializeField]
-    private GameObject go_debris;  // ���� ���� ������Ʈ. ��ҿ� ��Ȱ��ȭ, ���� ������ Ȱ��ȭ
+    private GameObject go_debris; 
 
     [SerializeField]
-    private GameObject go_effect_prefabs;  // ä�� ����Ʈ ȿ���� ����� ���� ���� ������Ʈ.
+    private GameObject go_effect_prefabs; 
 
 
     [SerializeField]
@@ -42,7 +42,6 @@ public class Rock : MonoBehaviour
 
     private void Destruction()
     {
-        // ������ �ı��� �� effect_sound_2 ����� Ŭ�� ���
         SoundManager.instance.PlaySound(destroy_Sound);
 
 

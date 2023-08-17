@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    [SerializeField]
-    private Slider hpbar;
+    public Slider hpbar;
 
     public float maxHp = 100;
     public static float curHp = 100;
