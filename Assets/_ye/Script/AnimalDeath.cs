@@ -5,12 +5,14 @@ using UnityEngine;
 public class AnimalDeath : MonoBehaviour
 {
     [SerializeField] protected GameObject[] dropItem;
-    [SerializeField] protected ParticleSystem ps;
+    [SerializeField] protected GameObject ps;
 
     public void ItemDrop(Transform transform)
     {
         var randomDrop = Random.Range(0, 5);
         var dropItemNum = Random.Range(0, dropItem.Length);
+        var efx = Instantiate(ps, transform.position, transform.rotation);
+        Destroy(efx, 2);
 
         if (randomDrop > 0 && randomDrop < 4)
         {
@@ -24,13 +26,6 @@ public class AnimalDeath : MonoBehaviour
         }
     }
 
-
-    public void DeathEffect()
-    {
-        ps.Play();
-        ps.Stop();
-        
-    }
 
 }
 

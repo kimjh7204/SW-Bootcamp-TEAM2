@@ -35,7 +35,12 @@ public class Animal : MonoBehaviour
     [SerializeField] protected string sound_Hurt;
     [SerializeField] protected string sound_Dead;
 
-    
+    protected FieldOfViewAngle theFieldOfViewAngle;
+    protected bool isChasing;
+    protected bool isAttacking;
+    protected HPBar thePlayerStatus;
+
+
 
     protected Vector3 destination;  // 목적지
 
@@ -48,9 +53,10 @@ public class Animal : MonoBehaviour
         isAction = true;   // 대기도 행동
         theAudio = GetComponent<AudioSource>();
         nav = GetComponent<NavMeshAgent>();
+        theFieldOfViewAngle = GetComponent<FieldOfViewAngle>();
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (!isDead)
         {
@@ -64,18 +70,18 @@ public class Animal : MonoBehaviour
     {
         if (isWalking || isRunning)
         {
-            Vector3 randomPosition = GetRandomPositionOnNavMesh();
+            Vector3 randomPosition = GetRandomPositionOnNavMesh(20f);
             nav.SetDestination(randomPosition);
         }
 
     }
-    public Vector3 GetRandomPositionOnNavMesh()
+    public Vector3 GetRandomPositionOnNavMesh(float distance)
     {
-        Vector3 randomDirection = Random.insideUnitSphere * 20f;
+        Vector3 randomDirection = Random.insideUnitSphere * distance;
         randomDirection += transform.position;
 
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, 20f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomDirection, out hit, distance, NavMesh.AllAreas))
         {
             return hit.position;
         }
@@ -90,7 +96,7 @@ public class Animal : MonoBehaviour
         if (isAction)
         {
             currentTime -= Time.deltaTime;
-            if (currentTime <= 0)  // 랜덤하게 다음 행동을 개시
+            if (currentTime <= 0 && !isChasing)  // 랜덤하게 다음 행동을 개시
                 ReSet();
         }
     }
@@ -165,7 +171,7 @@ public class Animal : MonoBehaviour
         {
 
             isDead = false;
-            Vector3 randomPosition = GetRandomPositionOnNavMesh();
+            Vector3 randomPosition = GetRandomPositionOnNavMesh(100f);
             this.gameObject.transform.position = randomPosition;
             nav.enabled = true;
             anim.SetTrigger("Reset");
