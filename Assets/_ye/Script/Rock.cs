@@ -30,7 +30,7 @@ public class Rock : MonoBehaviour
 
     public void Mining()
     {
-        SoundManager.instance.PlaySound(strike_Sound);
+        // SoundManager.instance.PlaySound(strike_Sound);
 
         GameObject clone = Instantiate(go_effect_prefabs, col.bounds.center, Quaternion.identity);
         Destroy(clone, destroyTime);
@@ -43,7 +43,7 @@ public class Rock : MonoBehaviour
     private void Destruction()
     {
         // ������ �ı��� �� effect_sound_2 ����� Ŭ�� ���
-        SoundManager.instance.PlaySound(destroy_Sound);
+        // SoundManager.instance.PlaySound(destroy_Sound);
 
 
         col.enabled = false;
