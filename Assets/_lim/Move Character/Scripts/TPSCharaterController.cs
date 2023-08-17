@@ -113,32 +113,32 @@ public class TPSCharaterController : MonoBehaviour
 
     private void ChoseTools()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            punchReady = true;
-            axeReady = false;
-            pickaxeReady = false;
-            animator.SetBool("istool", false);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha0))
+        // {
+        //     punchReady = true;
+        //     axeReady = false;
+        //     pickaxeReady = false;
+        //     animator.SetBool("istool", false);
+        // }
         
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            punchReady = false;
-            axeReady = true;
-            pickaxeReady = false;
-            animator.SetBool("istool", true);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     punchReady = false;
+        //     axeReady = true;
+        //     pickaxeReady = false;
+        //     animator.SetBool("istool", true);
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            punchReady = false;
-            axeReady = false;
-            pickaxeReady = true;
-            animator.SetBool("istool", true);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha2))
+        // {
+        //     punchReady = false;
+        //     axeReady = false;
+        //     pickaxeReady = true;
+        //     animator.SetBool("istool", true);
+        // }
     }
 
-    private void Attack()
+    public void Attack()
     {
         if (Input.GetMouseButtonDown(0) && !isHit && punchReady)
         {

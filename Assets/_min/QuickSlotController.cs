@@ -11,7 +11,7 @@ public class QuickSlot : MonoBehaviour
     private int selectedSlot;
     [SerializeField] private GameObject go_SelectedImage;
 
-    // [SerializeField] private WeaponManger theWeaponManager;
+    [SerializeField] private TPSCharaterController theWeaponManager;
 
     // Start is called before the first frame update
     void Start()
@@ -54,18 +54,18 @@ public class QuickSlot : MonoBehaviour
 
     private void Execute()
     {
-        // if (quickSlots[selectedSlot].item != null)
-        // {
-        //     if (quickSlots[selectedSlot].item.itemType == Items.ItemType.Equipment)
-        //         StartCoroutine(theWeaponManager.ChangeWeaponCoroutine(quickSlots[selectedSlot].item.weaponType, quickSlots[selectedSlot].item.itemName));
-        //     else if (quickSlots[selectedSlot].item.itemType == Items.ItemType.Used)
-        //         StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
-        //     else
-        //         StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
-        // }
-        // else
-        // {
-        //     StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
-        // }
+        if (quickSlots[selectedSlot].item != null)
+        {
+            if (quickSlots[selectedSlot].item.itemType == Items.ItemType.Equipment)
+                isHit = true;
+                animator.SetTrigger("toolAT");
+                StartCoroutine(AttackDelay());
+            else
+                StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
+        }
+        else
+        {
+            StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
+        }
     }
 }
