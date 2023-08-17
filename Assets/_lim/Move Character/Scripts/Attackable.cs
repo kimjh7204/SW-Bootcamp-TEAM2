@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Attackable : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject ToolUseEffect;
+    
     private Collider attackCollider;
     private int dmg = 10;
     
@@ -15,10 +18,15 @@ public class Attackable : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider != null)
+        if (collider.tag == "Animal")
         {
-            var enemy = collider.transform.GetComponent<Animal>();
-            enemy.Damage(dmg, transform.position);
+
+            collider.transform.GetComponent<Animal>().Damage(dmg, transform.position);
+        }
+
+        else if (collider.tag == "Rock")
+        {
+            collider.transform.GetComponent<Rock>().Mining();
         }
     }
     

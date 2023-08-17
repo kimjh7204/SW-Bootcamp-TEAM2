@@ -30,7 +30,7 @@ public class Rock : MonoBehaviour
 
     public void Mining()
     {
-        SoundManager.instance.PlaySound(strike_Sound);
+        // SoundManager.instance.PlaySound(strike_Sound);
 
         GameObject clone = Instantiate(go_effect_prefabs, col.bounds.center, Quaternion.identity);
         Destroy(clone, destroyTime);

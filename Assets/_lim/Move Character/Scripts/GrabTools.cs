@@ -6,7 +6,7 @@ public class GrabTools : MonoBehaviour
 {
     public int damage;
     public float rate;
-    public BoxCollider meleeArea;
+    // public BoxCollider meleeArea;
     public TrailRenderer trailEffect;
 
     public void Use()
@@ -18,11 +18,11 @@ public class GrabTools : MonoBehaviour
     IEnumerator Swing()
     {
         yield return new WaitForSeconds(0.1f);
-        meleeArea.enabled = true;
+        // meleeArea.enabled = true;
         trailEffect.enabled = true;
         
         yield return new WaitForSeconds(0.3f);
-        meleeArea.enabled = false;
+        // meleeArea.enabled = false;
         
         yield return new WaitForSeconds(0.3f);
         trailEffect.enabled = false;

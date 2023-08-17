@@ -27,7 +27,7 @@ public class Attack : MonoBehaviour
         }
 
         // StartCoroutine(AttackDelay());
-        attackCollider.enabled = false;
+        // attackCollider.enabled = false;
     }
     //molu
     // IEnumerator AttackDelay()
