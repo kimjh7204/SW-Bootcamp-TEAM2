@@ -4936,7 +4936,7 @@ GameObject:
   - component: {fileID: 4380567437831870905}
   - component: {fileID: 8035162111494367116}
   m_Layer: 9
-  m_Name: AxeItem
+  m_Name: AxeItem 1
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4950,7 +4950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3169453280495613730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5697272, y: 0, z: 5.185114}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
