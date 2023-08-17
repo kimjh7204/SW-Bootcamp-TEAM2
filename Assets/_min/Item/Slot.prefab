@@ -92,9 +92,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   itemCount: 0
-  itemImage: {fileID: 0}
-  text_Count: {fileID: 0}
+  itemImage: {fileID: 3393939351571644321}
+  text_Count: {fileID: 4552192945312015374}
   go_Countimage: {fileID: 0}
+  baseRect: {fileID: 0}
+  quickSlotBaseRect: {fileID: 0}
 --- !u!1 &1122436978964147379
 GameObject:
   m_ObjectHideFlags: 0

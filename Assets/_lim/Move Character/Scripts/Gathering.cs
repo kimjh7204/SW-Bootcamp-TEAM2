@@ -24,7 +24,13 @@ public class Gathering : MonoBehaviour
         {
             animator.SetTrigger("gathering");
             ingGathering = true;
+            StartCoroutine(GatheringDelay());
         }
-        else ingGathering = false;
+    }
+
+    private IEnumerator GatheringDelay()
+    {
+        yield return new WaitForSeconds(1.95F);
+        ingGathering = false;
     }
 }

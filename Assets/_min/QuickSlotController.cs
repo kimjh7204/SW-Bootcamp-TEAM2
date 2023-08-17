@@ -75,4 +75,24 @@ public class QuickSlot : MonoBehaviour
         }
         else theWeaponManager.punchReady = true;
     }
+
+    // public void IsActivatedQuickSlot(int _num)
+    // {
+    //     if (selectedSlot == _num)
+    //     {
+    //         Execute();
+    //         return;
+    //     }
+    //     if (DragSlot.instance != null)
+    //     {
+    //         if (DragSlot.instance.dragSlot != null)
+    //         {
+    //             if (DragSlot.instance.dragSlot.GetQuickSlotNumber() == selectedSlot)
+    //             {
+    //                 Execute();
+    //                 return;
+    //             }
+    //         }
+    //     }     
+    // }
 }

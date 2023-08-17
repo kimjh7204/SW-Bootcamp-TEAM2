@@ -45,13 +45,13 @@ public class ActionController : MonoBehaviour
             if(hitInfo.transform.tag == "Item")
             {
                 ItemInfoAppear();
-                GetComponent<Gathering>().ingGathering = true;
+                GetComponent<Gathering>().isGathering = true;
             }
         }
         else
         {
             ItemInfoDisappear();
-            GetComponent<Gathering>().ingGathering = false;
+            GetComponent<Gathering>().isGathering = false;
         }
     }
 
