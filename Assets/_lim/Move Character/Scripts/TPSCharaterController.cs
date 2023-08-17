@@ -8,10 +8,10 @@ public class TPSCharaterController : MonoBehaviour
 {
     [SerializeField] private Transform cameraArm;
     [SerializeField] private Collider AttackRange;
-    
+
     private Collider attackCollider;
     private Rigidbody rigid;
-    private Animator animator;
+    public Animator animator;
     private float movespeed = 0f;
     private bool JDown;
     private bool isJump = false;
@@ -33,13 +33,12 @@ public class TPSCharaterController : MonoBehaviour
     
     void Update()
     {
-        if (!isDeath)
+        if (!isDeath && !GetComponent<Gathering>().ingGathering)
         {
             Move();
             jump();
             OnDeath();
             Attack();
-            ChoseTools();
         }
         LookAround();
         
@@ -111,33 +110,6 @@ public class TPSCharaterController : MonoBehaviour
         }
     }
 
-    private void ChoseTools()
-    {
-        // if (Input.GetKeyDown(KeyCode.Alpha0))
-        // {
-        //     punchReady = true;
-        //     axeReady = false;
-        //     pickaxeReady = false;
-        //     animator.SetBool("istool", false);
-        // }
-        
-        // if (Input.GetKeyDown(KeyCode.Alpha1))
-        // {
-        //     punchReady = false;
-        //     axeReady = true;
-        //     pickaxeReady = false;
-        //     animator.SetBool("istool", true);
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Alpha2))
-        // {
-        //     punchReady = false;
-        //     axeReady = false;
-        //     pickaxeReady = true;
-        //     animator.SetBool("istool", true);
-        // }
-    }
-
     public void Attack()
     {
         if (Input.GetMouseButtonDown(0) && !isHit && punchReady)
@@ -147,7 +119,14 @@ public class TPSCharaterController : MonoBehaviour
             StartCoroutine(AttackDelay());
         }
         
-        if (Input.GetMouseButtonDown(0) && !isHit && !punchReady)
+        if (Input.GetMouseButtonDown(0) && !isHit && axeReady)
+        {
+            isHit = true;
+            animator.SetTrigger("toolAT");
+            StartCoroutine(AttackDelay());
+        }
+        
+        if (Input.GetMouseButtonDown(0) && !isHit && pickaxeReady)
         {
             isHit = true;
             animator.SetTrigger("toolAT");
