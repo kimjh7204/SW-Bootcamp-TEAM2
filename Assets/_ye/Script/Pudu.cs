@@ -13,7 +13,7 @@ public class Pudu : WeakAnimal
     private void RandomAction()
     {
 
-        int _random = Random.Range(0, 7); 
+        int _random = Random.Range(0, 9); 
 
         if (_random == 0)
             Wait();
@@ -27,7 +27,7 @@ public class Pudu : WeakAnimal
             Sit();
         else if (_random == 5)
             Spin();
-        else if (_random < 5)
+        else if (_random > 5)
             TryWalk();
     }
 

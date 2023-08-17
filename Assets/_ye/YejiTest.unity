@@ -4387,7 +4387,7 @@ MonoBehaviour:
   walkTime: 6
   waitTime: 4
   runTime: 4
-  deadTime: 0
+  deadTime: 2
   anim: {fileID: 272389573}
   sound_Normal: []
   sound_Hurt: Pudu_Hurt
