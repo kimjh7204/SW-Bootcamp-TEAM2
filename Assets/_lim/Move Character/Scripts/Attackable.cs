@@ -9,7 +9,7 @@ public class Attackable : MonoBehaviour
     private GameObject ToolUseEffect;
     
     private Collider attackCollider;
-    private int dmg = 10;
+    public int dmg = 10;
     
     void Start()
     {

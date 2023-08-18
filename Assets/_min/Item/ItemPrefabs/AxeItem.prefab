@@ -4936,7 +4936,7 @@ GameObject:
   - component: {fileID: 4380567437831870905}
   - component: {fileID: 8035162111494367116}
   m_Layer: 9
-  m_Name: AxeItem 1
+  m_Name: AxeItem
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
