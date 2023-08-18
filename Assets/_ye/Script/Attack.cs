@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack: MonoBehaviour
 {
+    [SerializeField]
+    private GameObject ToolUseEffect;
+
     private Collider attackCollider;
     private int dmg = 10;
 
@@ -15,25 +18,12 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Animal")
+        if (collider.tag == "Player")
         {
 
-            collider.transform.GetComponent<Animal>().Damage(dmg, transform.position);
+            collider.transform.GetComponent<TPSCharaterController>();
         }
 
-        else if (collider.tag == "Rock")
-        {
-            collider.transform.GetComponent<Rock>().Mining();
-        }
-
-        // StartCoroutine(AttackDelay());
-        // attackCollider.enabled = false;
     }
-    //molu
-    // IEnumerator AttackDelay()
-    // {
-    //     yield return new WaitForSeconds(1f);
-    //     
-    // }
-}
 
+}

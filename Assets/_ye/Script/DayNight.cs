@@ -6,6 +6,9 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class DayAndNight : MonoBehaviour
 {
+    private float gameTime = 360f;
+    private float gameTimeHour, gameTimeDay;
+
     [SerializeField] private float secondPerRealTimeSecond; // 게임 세계에서의 100초 = 현실 세계의 1초
 
     private bool isNight = false;
@@ -16,25 +19,61 @@ public class DayAndNight : MonoBehaviour
     private float currentFogDensity;
 
     [SerializeField] private TextMeshProUGUI dayTimeText;
-    private string h, m = "00";
+    private string ampm, h, m;
     
     void Start()
     {
         dayFogDensity = RenderSettings.fogDensity;
-        dayTimeText = GetComponent<TextMeshProUGUI>();
+
     }
 
     void Update()
     {
-        // 계속 태양을 X 축 중심으로 회전. 현실시간 1초에  0.1f * secondPerRealTimeSecond 각도만큼 회전
-        transform.Rotate(Vector3.right, 0.1f * secondPerRealTimeSecond * Time.deltaTime);
+        gameTime += Time.deltaTime;
 
-        if (transform.eulerAngles.x >= 170) // x 축 회전값 170 이상이면 밤
+        gameTimeHour = gameTime / 60f;
+
+        if (gameTimeHour > 24f)
+        {
+            gameTime = 0f; 
+            gameTimeDay += 1f;
+        }
+
+        var lightrotate = -0.25f;
+        //if (lightrotate < 0)
+        //{
+         //   lightrotate += 360f;
+        //}
+
+
+        int mm = (int)gameTime % 60;
+        int hh = (int)gameTimeHour;
+
+        if (hh > 12)
+        {
+            hh -= 12;
+            ampm = "PM";
+        }
+        else
+        {
+            ampm = "AM";
+        }
+        h = hh.ToString("D2");
+        m = mm.ToString("D2");
+
+        dayTimeText.text = ampm + h + " : " + m;
+
+
+
+        transform.Rotate(lightrotate * Time.deltaTime  , 0, 0);
+
+        if (transform.eulerAngles.x >= 345 || transform.eulerAngles.x < 0) // x 축 회전값 170 이상이면 밤
             isNight = true;
-        else if (transform.eulerAngles.x <= 10)  // x 축 회전값 10 이하면 낮
+        else if (transform.eulerAngles.x <= 180)  // x 축 회전값 10 이하면 낮
             isNight = false;
 
-        dayTimeText.text = TimeCheck();
+        
+
 
         if (isNight)
         {
@@ -54,17 +93,4 @@ public class DayAndNight : MonoBehaviour
         }
     }
 
-    private string TimeCheck()
-    {
-        float hh = transform.eulerAngles.x / 3600;
-        float mm = (transform.eulerAngles.x % 3600) / 60;
-
-        h = startZero(hh);
-        m = startZero(mm);
-        return "Time " + h + " : " + m;
-    }
-    public string startZero(float num)
-    {
-        return (num < 10) ? "0" + num : "" + num;
-    }
 }
