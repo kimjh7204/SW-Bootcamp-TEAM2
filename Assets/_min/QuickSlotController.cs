@@ -67,6 +67,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = true;
                 theWeaponManager.pickaxeReady = false;
+                theWeaponManager.animator.SetBool("isPickAxe", false);
                 theWeaponManager.animator.SetBool("isAxe", true);
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("axe", true);
@@ -77,6 +78,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = false;
                 theWeaponManager.pickaxeReady = true;
+                theWeaponManager.animator.SetBool("isAxe", false);
                 theWeaponManager.animator.SetBool("isPickAxe", true);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", true);
