@@ -22,7 +22,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         //theInputNumber = FindObjectOfType<InputNumber>();
         //theItemEffectDatabase = FindObjectOfType<ItemEffectDatabase>();
-        // theWeaponManager = FindObjectOfType<WeaponManger>();
+        theWeaponManager = FindObjectOfType<TPSCharaterController>();
     }
 
     private void SetColor(float _alpha)

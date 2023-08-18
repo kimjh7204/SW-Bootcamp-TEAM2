@@ -7,6 +7,8 @@ public class ActionController : MonoBehaviour
 {
     private bool pickupActivated = false;
 
+    public Gathering gathering;
+
     [SerializeField] private float radius;
     [SerializeField] private float dis;
 
@@ -43,10 +45,14 @@ public class ActionController : MonoBehaviour
             if(hitInfo.transform.tag == "Item")
             {
                 ItemInfoAppear();
+                GetComponent<Gathering>().isGathering = true;
             }
         }
-        else   
+        else
+        {
             ItemInfoDisappear();
+            GetComponent<Gathering>().isGathering = false;
+        }
     }
 
     private void ItemInfoAppear()
