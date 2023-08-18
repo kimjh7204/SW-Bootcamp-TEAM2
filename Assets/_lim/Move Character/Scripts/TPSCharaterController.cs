@@ -18,20 +18,20 @@ public class TPSCharaterController : MonoBehaviour
     private bool isDeath = false;
     private bool isHit = false;
 
+    public TrailRenderer trailEffect;
     public bool punchReady = true;
     public bool axeReady = false;
     public bool pickaxeReady = false;
 
+    [SerializeField] private GameObject[] gameObjects;
+    public Dictionary<string, GameObject> ObjDict = new Dictionary<string, GameObject>();
 
-    public Dictionary<string, GameObject> gameObjectDictionary = new Dictionary<string, GameObject>();
-    
+
     void Start()
     {
-        GameObject characterObject = GameObject.Find("axe");
-        if (characterObject != null)
-        {
-            gameObjectDictionary["axe"] = characterObject;
-        }
+        ObjDict.Add("axe", gameObjects[0]);
+        ObjDict.Add("pickaxe", gameObjects[1]);
+        
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         attackCollider = AttackRange.GetComponent<Collider>();
@@ -41,7 +41,7 @@ public class TPSCharaterController : MonoBehaviour
     public void SetItem(string objectName, bool isActive)
     {
         GameObject obj;
-        if(gameObjectDictionary.TryGetValue(objectName, out obj))
+        if(ObjDict.TryGetValue(objectName, out obj))
         {
             obj.SetActive(isActive);
         }

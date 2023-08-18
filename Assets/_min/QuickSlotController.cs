@@ -12,7 +12,7 @@ public class QuickSlot : MonoBehaviour
     [SerializeField] private GameObject go_SelectedImage;
 
     [SerializeField] private TPSCharaterController theWeaponManager;
-    [SerializeField] public GameObject Tools;
+    private Attackable attackable;
 
     GameObject axe;
 
@@ -22,6 +22,7 @@ public class QuickSlot : MonoBehaviour
     {
         quickSlots = tf_parent.GetComponentsInChildren<Slot>();
         selectedSlot = 0;
+        
     }
 
     // Update is called once per frame
@@ -62,22 +63,29 @@ public class QuickSlot : MonoBehaviour
         {
             if (quickSlots[selectedSlot].item.itemName == "AxeItem")
             {
+                // attackable.dmg = 20;
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = true;
                 theWeaponManager.pickaxeReady = false;
                 theWeaponManager.animator.SetBool("isAxe", true);
+                theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("axe", true);
-                // 딕셔너리 Axe{ key( string Axe ) : value( bool isactive ) }  --> isactive 를 true로 만듬
-                // SetItem( Axe.key, Axe.value ) --> Axe를 활성화 시킴
             }
             else if (quickSlots[selectedSlot].item.itemName == "PickAxeItem")
             {
+                // attackable.dmg = 25;
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = false;
                 theWeaponManager.pickaxeReady = true;
                 theWeaponManager.animator.SetBool("isPickAxe", true);
+                theWeaponManager.SetItem("axe", false);
+                theWeaponManager.SetItem("pickaxe", true);
             }
-            else theWeaponManager.punchReady = true;
+            else
+            {
+                theWeaponManager.punchReady = true;
+                attackable.dmg = 10;
+            }
         }
         else theWeaponManager.punchReady = true;
     }
