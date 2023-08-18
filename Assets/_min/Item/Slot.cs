@@ -81,12 +81,36 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             {
                 if(item.itemType == Items.ItemType.Equipment)
                 {
-                    //StartCoroutine(theWeaponManager.ChangeWeaponCoroutine(item.weaponType, item.itemName));
+                    // if (item.itemName == "AxeItem")
+                    // {
+                    //     // attackable.dmg = 20;
+                    //     theWeaponManager.punchReady = false;
+                    //     theWeaponManager.axeReady = true;
+                    //     theWeaponManager.pickaxeReady = false;
+                    //     theWeaponManager.animator.SetBool("isAxe", true);
+                    //     theWeaponManager.SetItem("pickaxe", false);
+                    //     theWeaponManager.SetItem("axe", true);
+                    // }
+                    // else if (item.itemName == "PickAxeItem")
+                    // {
+                    //     // attackable.dmg = 25;
+                    //     theWeaponManager.punchReady = false;
+                    //     theWeaponManager.axeReady = false;
+                    //     theWeaponManager.pickaxeReady = true;
+                    //     theWeaponManager.animator.SetBool("isPickAxe", true);
+                    //     theWeaponManager.SetItem("axe", false);
+                    //     theWeaponManager.SetItem("pickaxe", true);
+                    // }
+                    // else
+                    // {
+                    //     theWeaponManager.punchReady = true;
+                    //     //attackable.dmg = 10;
+                    // }
                 }
                 else
                 {
                     Debug.Log(item.itemName + " 을 사용했습니다");
-                    SetSlotCount(-1);
+                    //SetSlotCount(-1);
                 }
             }
         }
@@ -121,11 +145,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             (DragSlot.instance.transform.localPosition.x > quickSlotBaseRect.rect.xMin
             && DragSlot.instance.transform.localPosition.x < quickSlotBaseRect.rect.xMax
             && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y > quickSlotBaseRect.rect.yMin + quickSlotBaseRect.transform.localPosition.y
-            && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y < quickSlotBaseRect.rect.yMax + quickSlotBaseRect.transform.localPosition.y)))
-        {
-            if (DragSlot.instance.dragSlot != null)
-                theInputNumber.Call();
-        }
+            && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y < quickSlotBaseRect.rect.yMax + quickSlotBaseRect.transform.localPosition.y)));
+        // {
+        //     if (DragSlot.instance.dragSlot != null)
+        //         theInputNumber.Call();
+        // }
         // 인벤토리 혹은 퀵슬롯 영역에서 드래그가 끝났다면
         else
         {
