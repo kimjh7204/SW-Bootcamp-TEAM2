@@ -145,11 +145,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             (DragSlot.instance.transform.localPosition.x > quickSlotBaseRect.rect.xMin
             && DragSlot.instance.transform.localPosition.x < quickSlotBaseRect.rect.xMax
             && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y > quickSlotBaseRect.rect.yMin + quickSlotBaseRect.transform.localPosition.y
-            && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y < quickSlotBaseRect.rect.yMax + quickSlotBaseRect.transform.localPosition.y)));
-        // {
+            && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y < quickSlotBaseRect.rect.yMax + quickSlotBaseRect.transform.localPosition.y)))
+        {
         //     if (DragSlot.instance.dragSlot != null)
         //         theInputNumber.Call();
-        // }
+            DragSlot.instance.SetColor(0);
+            DragSlot.instance.dragSlot = null;
+        }
         // 인벤토리 혹은 퀵슬롯 영역에서 드래그가 끝났다면
         else
         {
