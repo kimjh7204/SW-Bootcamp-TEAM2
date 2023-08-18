@@ -12,7 +12,7 @@ public class QuickSlot : MonoBehaviour
     [SerializeField] private GameObject go_SelectedImage;
 
     [SerializeField] private TPSCharaterController theWeaponManager;
-    private Attackable attackable;
+    // private Attackable attackable;
 
     GameObject axe;
 
@@ -63,7 +63,6 @@ public class QuickSlot : MonoBehaviour
         {
             if (quickSlots[selectedSlot].item.itemName == "AxeItem")
             {
-                // attackable.dmg = 20;
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = true;
                 theWeaponManager.pickaxeReady = false;
@@ -71,10 +70,10 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.animator.SetBool("isAxe", true);
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("axe", true);
+                Attackable.dmg = 20;
             }
             else if (quickSlots[selectedSlot].item.itemName == "PickAxeItem")
             {
-                // attackable.dmg = 25;
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = false;
                 theWeaponManager.pickaxeReady = true;
@@ -82,6 +81,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.animator.SetBool("isPickAxe", true);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", true);
+                Attackable.dmg = 25;
             }
             else
             {
@@ -90,7 +90,9 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.punchReady = true;
-                //attackable.dmg = 10;
+                theWeaponManager.axeReady = false;
+                theWeaponManager.pickaxeReady = false;
+                Attackable.dmg = 10;
             }
         }
         else 
@@ -100,6 +102,9 @@ public class QuickSlot : MonoBehaviour
             theWeaponManager.SetItem("axe", false);
             theWeaponManager.SetItem("pickaxe", false);
             theWeaponManager.punchReady = true;
+            theWeaponManager.axeReady = false;
+            theWeaponManager.pickaxeReady = false;
+            Attackable.dmg = 10;
         }
     }
 
