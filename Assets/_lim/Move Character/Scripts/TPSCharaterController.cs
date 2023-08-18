@@ -21,14 +21,33 @@ public class TPSCharaterController : MonoBehaviour
     public bool punchReady = true;
     public bool axeReady = false;
     public bool pickaxeReady = false;
+
+
+    public Dictionary<string, GameObject> gameObjectDictionary = new Dictionary<string, GameObject>();
     
     void Start()
     {
+        GameObject characterObject = GameObject.Find("axe");
+        if (characterObject != null)
+        {
+            gameObjectDictionary["axe"] = characterObject;
+        }
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         attackCollider = AttackRange.GetComponent<Collider>();
         attackCollider.enabled = false;
     }
+
+    public void SetItem(string objectName, bool isActive)
+    {
+        GameObject obj;
+        if(gameObjectDictionary.TryGetValue(objectName, out obj))
+        {
+            obj.SetActive(isActive);
+        }
+    }
+    
+
 
     
     void Update()
@@ -165,6 +184,8 @@ public class TPSCharaterController : MonoBehaviour
         
         
     }
+
+    
     
     
 }

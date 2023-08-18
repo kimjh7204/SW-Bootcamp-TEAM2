@@ -18,9 +18,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     private TPSCharaterController theWeaponManager;
 
+    private InputNumber theInputNumber;
+
     void Start()
     {
-        //theInputNumber = FindObjectOfType<InputNumber>();
+        theInputNumber = FindObjectOfType<InputNumber>();
         //theItemEffectDatabase = FindObjectOfType<ItemEffectDatabase>();
         theWeaponManager = FindObjectOfType<TPSCharaterController>();
     }
@@ -121,8 +123,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y > quickSlotBaseRect.rect.yMin + quickSlotBaseRect.transform.localPosition.y
             && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y < quickSlotBaseRect.rect.yMax + quickSlotBaseRect.transform.localPosition.y)))
         {
-            //if (DragSlot.instance.dragSlot != null)
-                //theInputNumber.Call();
+            if (DragSlot.instance.dragSlot != null)
+                theInputNumber.Call();
         }
         // 인벤토리 혹은 퀵슬롯 영역에서 드래그가 끝났다면
         else

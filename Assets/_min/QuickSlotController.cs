@@ -14,6 +14,9 @@ public class QuickSlot : MonoBehaviour
     [SerializeField] private TPSCharaterController theWeaponManager;
     [SerializeField] public GameObject Tools;
 
+    GameObject axe;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,9 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.axeReady = true;
                 theWeaponManager.pickaxeReady = false;
                 theWeaponManager.animator.SetBool("isAxe", true);
+                theWeaponManager.SetItem("axe", true);
+                // 딕셔너리 Axe{ key( string Axe ) : value( bool isactive ) }  --> isactive 를 true로 만듬
+                // SetItem( Axe.key, Axe.value ) --> Axe를 활성화 시킴
             }
             else if (quickSlots[selectedSlot].item.itemName == "PickAxeItem")
             {
