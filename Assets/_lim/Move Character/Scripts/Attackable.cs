@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class Attackable : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject ToolUseEffect;
-    
     private Collider attackCollider;
-    public int dmg = 10;
+    public static int dmg = 10;
     
     void Start()
     {
