@@ -20,7 +20,7 @@ public class Thirst : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (curThirst > 0)
             {
