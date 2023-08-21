@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a295d3e8f77e834f815bad77aaab555, type: 3}
-  m_Name: TorchItem
+  m_Name: ChickItem
   m_EditorClassIdentifier: 
-  itemName: TorchItem
-  itemType: 0
-  itemImage: {fileID: 21300000, guid: e4c30666196e07843b0904ee23ac8323, type: 3}
-  itemPrefab: {fileID: 1816966673987872, guid: c4c750a46b1c14641ad67d5ee129ad31, type: 3}
+  itemName: Chicken
+  itemType: 2
+  itemImage: {fileID: 21300000, guid: eec0facfca0a442239269e367daaad9c, type: 3}
+  itemPrefab: {fileID: 4446042087989776518, guid: 40b6f50acd4573c4ea0df17613517208, type: 3}
   weaponType: 

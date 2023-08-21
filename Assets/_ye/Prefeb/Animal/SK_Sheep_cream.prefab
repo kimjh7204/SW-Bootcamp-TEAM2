@@ -322,9 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem:
-  - {fileID: 4179205776943551302, guid: f821c31ae4932be4b8276b396f3c743a, type: 3}
-  - {fileID: 1032942817933048823, guid: 7ca91c42d10294449b9354587fae948b, type: 3}
-  - {fileID: 3517465817000159781, guid: c0039e446a48a2f4190a506e5c07d018, type: 3}
+  - {fileID: 4179205776943551302, guid: 6734ecda6e85a73419986cf65c4edef0, type: 3}
+  - {fileID: 3517465817000159781, guid: 2290b37be8602bb439faef0fd3f84ea3, type: 3}
   ps: {fileID: 7369230038912516806, guid: 1b54688403dfaac4d91ac940a6d0cbe7, type: 3}
 --- !u!114 &-6282296219990498218
 MonoBehaviour:

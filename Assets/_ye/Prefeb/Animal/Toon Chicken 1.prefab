@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 205918470726579112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.35, y: 0, z: -11.28}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.7460113, y: 2.2351816, z: 2.2114668}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2703611947963060418}
@@ -41,7 +41,7 @@ Transform:
   - {fileID: 35555549127850376}
   - {fileID: 8555314435894955650}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9030605301170042851
 Animator:
@@ -277,8 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem:
-  - {fileID: 4446042087989776518, guid: 63dd1dc21a6eac04996f85167ed8d908, type: 3}
-  - {fileID: 2943048346840671760, guid: 0192c6198d7bda742889b23d1a7721e5, type: 3}
+  - {fileID: 4446042087989776518, guid: 40b6f50acd4573c4ea0df17613517208, type: 3}
   ps: {fileID: 7369230038912516806, guid: 1b54688403dfaac4d91ac940a6d0cbe7, type: 3}
 --- !u!114 &-1813519938181614939
 MonoBehaviour:
