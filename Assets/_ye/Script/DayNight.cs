@@ -19,6 +19,7 @@ public class DayAndNight : MonoBehaviour
     private float currentFogDensity;
 
     [SerializeField] private TextMeshProUGUI dayTimeText;
+    [SerializeField] private TextMeshProUGUI dayText;
     private string ampm, h, m;
     
     void Start()
@@ -62,6 +63,7 @@ public class DayAndNight : MonoBehaviour
         m = mm.ToString("D2");
 
         dayTimeText.text = ampm + h + " : " + m;
+        dayText.text = "Day " + gameTimeDay.ToString();
 
 
 
