@@ -18,6 +18,10 @@ public class TPSCharaterController : MonoBehaviour
     private bool isDeath = false;
     private bool isHit = false;
     private bool isHurt = false;
+    private bool isMsound = false;
+
+    [SerializeField] private string swingSound;
+    [SerializeField] private string moveSound;
 
     public TrailRenderer trailEffect;
     public bool punchReady = true;
@@ -93,11 +97,22 @@ public class TPSCharaterController : MonoBehaviour
             var transform1 = transform;
             transform1.forward = moveDir;
             transform1.position += moveDir * (Time.deltaTime * movespeed);
-            
+            if (!isMsound && !isJump)
+            {
+                isMsound = true;   
+                StartCoroutine(MoveSoundDelay());
+            }
         }
         else movespeed = 0;
 
         // Debug.DrawRay(cameraArm.position, new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized , Color.red);
+    }
+    
+    IEnumerator MoveSoundDelay()
+    {
+        SoundManager.instance.PlaySound(moveSound);
+        yield return new WaitForSeconds(0.2f);
+        isMsound = false;
     }
     
     private void LookAround()
@@ -146,6 +161,7 @@ public class TPSCharaterController : MonoBehaviour
             isHit = true;
             animator.SetTrigger("toolAT");
             StartCoroutine(AttackDelay());
+            SoundManager.instance.PlaySound(swingSound);
         }
         
         if (Input.GetMouseButtonDown(0) && !isHit && pickaxeReady && !torchReady)
@@ -153,6 +169,7 @@ public class TPSCharaterController : MonoBehaviour
             isHit = true;
             animator.SetTrigger("toolAT");
             StartCoroutine(AttackDelay());
+            SoundManager.instance.PlaySound(swingSound);
         }
     }
     
