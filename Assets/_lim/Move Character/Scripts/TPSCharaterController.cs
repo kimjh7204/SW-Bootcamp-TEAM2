@@ -140,14 +140,14 @@ public class TPSCharaterController : MonoBehaviour
             StartCoroutine(AttackDelay());
         }
         
-        if (Input.GetMouseButtonDown(0) && !isHit && axeReady)
+        if (Input.GetMouseButtonDown(0) && !isHit && axeReady && !torchReady)
         {
             isHit = true;
             animator.SetTrigger("toolAT");
             StartCoroutine(AttackDelay());
         }
         
-        if (Input.GetMouseButtonDown(0) && !isHit && pickaxeReady)
+        if (Input.GetMouseButtonDown(0) && !isHit && pickaxeReady && !torchReady)
         {
             isHit = true;
             animator.SetTrigger("toolAT");

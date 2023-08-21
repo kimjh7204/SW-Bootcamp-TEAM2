@@ -115,6 +115,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isAxe
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isTorch
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8816770131551866176}
   m_Solo: 0
@@ -226,6 +229,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isPickAxe
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isTorch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2133114190476598953}
@@ -1207,6 +1213,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isPickAxe
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isTorch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4896369180536282722}
