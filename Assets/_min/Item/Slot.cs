@@ -20,6 +20,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     private InputNumber theInputNumber;
 
+    //private Rect baseRect;
+
     void Start()
     {
         theInputNumber = FindObjectOfType<InputNumber>();
