@@ -7,6 +7,7 @@ public class Animal : MonoBehaviour
 {
     [SerializeField] protected string animalName; // 동물의 이름
     [SerializeField] protected int hp;  // 동물의 체력
+    private int firstHp;
 
     [SerializeField] protected float walkSpeed;  // 걷기 속력
     [SerializeField] protected float runSpeed;  // 달리기 속력
@@ -54,6 +55,7 @@ public class Animal : MonoBehaviour
         theAudio = GetComponent<AudioSource>();
         nav = GetComponent<NavMeshAgent>();
         theFieldOfViewAngle = GetComponent<FieldOfViewAngle>();
+        firstHp = hp;
     }
 
     protected virtual void Update()
@@ -175,7 +177,7 @@ public class Animal : MonoBehaviour
             this.gameObject.transform.position = randomPosition;
             nav.enabled = true;
             anim.SetTrigger("Reset");
-            hp = 15;
+            hp = firstHp;
             this.gameObject.SetActive(true);
             ReSet();
 
