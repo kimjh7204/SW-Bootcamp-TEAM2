@@ -72,7 +72,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.animator.SetBool("isTorch", false);
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("axe", true);
-                theWeaponManager.SetItem("Torch", false);
+                theWeaponManager.SetItem("torch", false);
                 Attackable.dmg = 20;
             }
             else if (quickSlots[selectedSlot].item.itemName == "PickAxeItem")
@@ -86,7 +86,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.animator.SetBool("isTorch", false);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", true);
-                theWeaponManager.SetItem("Torch", false);
+                theWeaponManager.SetItem("torch", false);
                 Attackable.dmg = 25;
             }
             else if (quickSlots[selectedSlot].item.itemName == "TorchItem")
@@ -100,7 +100,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.animator.SetBool("isTorch", true);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", false);
-                theWeaponManager.SetItem("Torch", true);
+                theWeaponManager.SetItem("torch", true);
                 Attackable.dmg = 10;
             }
             else
@@ -110,7 +110,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.animator.SetBool("isTorch", false);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", false);
-                theWeaponManager.SetItem("Torch", false);
+                theWeaponManager.SetItem("torch", false);
                 theWeaponManager.punchReady = true;
                 theWeaponManager.axeReady = false;
                 theWeaponManager.pickaxeReady = false;
@@ -125,7 +125,7 @@ public class QuickSlot : MonoBehaviour
             theWeaponManager.animator.SetBool("isTorch", false);
             theWeaponManager.SetItem("axe", false);
             theWeaponManager.SetItem("pickaxe", false);
-            theWeaponManager.SetItem("Torch", false);
+            theWeaponManager.SetItem("torch", false);
             theWeaponManager.punchReady = true;
             theWeaponManager.axeReady = false;
             theWeaponManager.pickaxeReady = false;

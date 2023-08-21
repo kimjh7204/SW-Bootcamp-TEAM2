@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4919135733088466}
   - component: {fileID: 5056683217215487320}
-  - component: {fileID: 5588989287562030876}
   - component: {fileID: 7013094245961875654}
   - component: {fileID: 4916687443385185878}
-  m_Layer: 0
+  - component: {fileID: 5588989287562030876}
+  m_Layer: 9
   m_Name: TorchItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,20 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
-  value: 1
---- !u!114 &5588989287562030876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816966673987872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302fd443b560f2941b64e60a6cbe4f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: {fileID: 11400000, guid: dd607cbd198580749a86db9f13f374e2, type: 2}
+  value: 2
 --- !u!135 &7013094245961875654
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -113,6 +100,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5588989287562030876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816966673987872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302fd443b560f2941b64e60a6cbe4f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: {fileID: 11400000, guid: dd607cbd198580749a86db9f13f374e2, type: 2}
 --- !u!1 &2786691346372693135
 GameObject:
   m_ObjectHideFlags: 0

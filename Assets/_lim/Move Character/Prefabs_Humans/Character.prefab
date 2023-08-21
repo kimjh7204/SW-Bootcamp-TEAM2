@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 3151608749114327992}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6738,10 +6738,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8722979952443358439, guid: eb3fa0c9027882b4084517c1a3342a1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3985926845524089555}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8234146512507840093, guid: eb3fa0c9027882b4084517c1a3342a1f, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 6841357453267289051}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3fa0c9027882b4084517c1a3342a1f, type: 3}
 --- !u!4 &7049093923683856732 stripped
 Transform:
@@ -6753,21 +6750,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8234146512507840093, guid: eb3fa0c9027882b4084517c1a3342a1f, type: 3}
   m_PrefabInstance: {fileID: 1791633991883230651}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6841357453267289051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7681092848862243814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7ac329a6c8c67429c07fc755a8f330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 15
-  rate: 0.4
-  trailEffect: {fileID: 5041822979223767272}
 --- !u!1001 &5077003180796163161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6849,31 +6831,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 825331811616393405, guid: ebd12dd249a9ef041ace0c801df7cb58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6128198179771593464}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 18008095503012359, guid: ebd12dd249a9ef041ace0c801df7cb58, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 209917598315706645}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd12dd249a9ef041ace0c801df7cb58, type: 3}
 --- !u!1 &5065099574556485214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 18008095503012359, guid: ebd12dd249a9ef041ace0c801df7cb58, type: 3}
   m_PrefabInstance: {fileID: 5077003180796163161}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &209917598315706645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5065099574556485214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7ac329a6c8c67429c07fc755a8f330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 15
-  rate: 0.4
-  trailEffect: {fileID: 3285460175619286932}
 --- !u!4 &5548726758026231012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 825331811616393405, guid: ebd12dd249a9ef041ace0c801df7cb58, type: 3}
@@ -7062,7 +7026,8 @@ PrefabInstance:
       propertyPath: m_BounceIntensity
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64943754015997116, guid: e7400f9e927fd47a394fadd5d536fb00, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
