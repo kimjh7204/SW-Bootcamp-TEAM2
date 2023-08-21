@@ -76,11 +76,11 @@ public class TPSCharaterController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                movespeed = 6;
+                movespeed = 7.5f;
             }
             else
             {
-                movespeed = 3;
+                movespeed = 5;
             }
 
             var forward = cameraArm.forward;
