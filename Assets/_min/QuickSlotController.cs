@@ -66,10 +66,13 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = true;
                 theWeaponManager.pickaxeReady = false;
+                theWeaponManager.torchReady = false;
                 theWeaponManager.animator.SetBool("isPickAxe", false);
                 theWeaponManager.animator.SetBool("isAxe", true);
+                theWeaponManager.animator.SetBool("isTorch", false);
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("axe", true);
+                theWeaponManager.SetItem("Torch", false);
                 Attackable.dmg = 20;
             }
             else if (quickSlots[selectedSlot].item.itemName == "PickAxeItem")
@@ -77,21 +80,41 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.punchReady = false;
                 theWeaponManager.axeReady = false;
                 theWeaponManager.pickaxeReady = true;
+                theWeaponManager.torchReady = false;
                 theWeaponManager.animator.SetBool("isAxe", false);
                 theWeaponManager.animator.SetBool("isPickAxe", true);
+                theWeaponManager.animator.SetBool("isTorch", false);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", true);
+                theWeaponManager.SetItem("Torch", false);
                 Attackable.dmg = 25;
+            }
+            else if (quickSlots[selectedSlot].item.itemName == "TorchItem")
+            {
+                theWeaponManager.punchReady = false;
+                theWeaponManager.axeReady = false;
+                theWeaponManager.pickaxeReady = false;
+                theWeaponManager.torchReady = true;
+                theWeaponManager.animator.SetBool("isAxe", false);
+                theWeaponManager.animator.SetBool("isPickAxe", false);
+                theWeaponManager.animator.SetBool("isTorch", true);
+                theWeaponManager.SetItem("axe", false);
+                theWeaponManager.SetItem("pickaxe", false);
+                theWeaponManager.SetItem("Torch", true);
+                Attackable.dmg = 10;
             }
             else
             {
                 theWeaponManager.animator.SetBool("isAxe", false);
                 theWeaponManager.animator.SetBool("isPickAxe", false);
+                theWeaponManager.animator.SetBool("isTorch", false);
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", false);
+                theWeaponManager.SetItem("Torch", false);
                 theWeaponManager.punchReady = true;
                 theWeaponManager.axeReady = false;
                 theWeaponManager.pickaxeReady = false;
+                theWeaponManager.torchReady = false;
                 Attackable.dmg = 10;
             }
         }
@@ -99,11 +122,14 @@ public class QuickSlot : MonoBehaviour
         {
             theWeaponManager.animator.SetBool("isAxe", false);
             theWeaponManager.animator.SetBool("isPickAxe", false);
+            theWeaponManager.animator.SetBool("isTorch", false);
             theWeaponManager.SetItem("axe", false);
             theWeaponManager.SetItem("pickaxe", false);
+            theWeaponManager.SetItem("Torch", false);
             theWeaponManager.punchReady = true;
             theWeaponManager.axeReady = false;
             theWeaponManager.pickaxeReady = false;
+            theWeaponManager.torchReady = false;
             Attackable.dmg = 10;
         }
     }
