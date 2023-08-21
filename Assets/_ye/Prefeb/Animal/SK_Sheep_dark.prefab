@@ -95,6 +95,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: -4926861032444072644}
   m_SourcePrefab: {fileID: 100100000, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
+--- !u!95 &787536572781176148 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4627881694569416946, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
+  m_PrefabInstance: {fileID: 5392055284855729574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6288740520811144596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2130894876585904178, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
@@ -121,7 +126,7 @@ MonoBehaviour:
   waitTime: 2
   runTime: 2
   deadTime: 1
-  anim: {fileID: 0}
+  anim: {fileID: 787536572781176148}
   sound_Normal: []
   sound_Hurt: Goat_Hurt
   sound_Dead: Goat_Dead
