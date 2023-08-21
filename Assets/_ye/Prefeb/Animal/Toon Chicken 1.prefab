@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 3275450795993086488}
   - component: {fileID: 1364754162326005151}
   - component: {fileID: 1160993854245689264}
+  - component: {fileID: -8318944225046422972}
+  - component: {fileID: -1813519938181614939}
   m_Layer: 0
   m_Name: Toon Chicken 1
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,8 +86,7 @@ MonoBehaviour:
   runTime: 2
   deadTime: 1
   anim: {fileID: 9030605301170042851}
-  sound_Normal:
-  - {fileID: 8300000, guid: 41a36f40cd32da94db4fd5e7a8762405, type: 3}
+  sound_Normal: []
   sound_Hurt: Chick_Nomal
   sound_Dead: Chick_Nomal
 --- !u!82 &3275450795993086488
@@ -263,6 +264,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48806858, y: 0.5363474, z: 0.5371132}
   m_Center: {x: -0.006801605, y: 0.2401272, z: -0.014268875}
+--- !u!114 &-8318944225046422972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205918470726579112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d21356c801dc52439bde722ee39093f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItem:
+  - {fileID: 2943048346840671760, guid: 0192c6198d7bda742889b23d1a7721e5, type: 3}
+  - {fileID: 4446042087989776518, guid: 63dd1dc21a6eac04996f85167ed8d908, type: 3}
+  - {fileID: 2834595618098478615, guid: 1a7b0e97679bb3d409ee0f641836fe95, type: 3}
+  - {fileID: 963739717108670263, guid: 6939a91b74a6d444dbf2585df8b0cf59, type: 3}
+  ps: {fileID: 7369230038912516806, guid: 1b54688403dfaac4d91ac940a6d0cbe7, type: 3}
+--- !u!114 &-1813519938181614939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205918470726579112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab59d3417a43d604fb6be0db0d80d647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 130
+  viewDistance: 10
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &730960792590116994
 GameObject:
   m_ObjectHideFlags: 0

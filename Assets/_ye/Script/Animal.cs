@@ -186,8 +186,11 @@ public class Animal : MonoBehaviour
 
     protected void RandomSound()
     {
-        int _random = Random.Range(0, sound_Normal.Length);  // 돼지의 일상 사운드는 3 개
-        PlaySE(sound_Normal[_random]);
+        if (sound_Normal.Length != 0)
+        {
+            int _random = Random.Range(0, sound_Normal.Length);  // 돼지의 일상 사운드는 3 개
+            PlaySE(sound_Normal[_random]);
+        }
     }
 
     protected void PlaySE(AudioClip _clip)

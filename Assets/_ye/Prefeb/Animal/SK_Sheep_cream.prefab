@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Sheep_cream
       objectReference: {fileID: 0}
+    - target: {fileID: 660074295215499852, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 1131743748276359499, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.84
@@ -88,12 +92,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 660074295215499852, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5212832319551817165}
+    - targetCorrespondingSourceObject: {fileID: 660074295215499852, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8535701601851806697}
+    - targetCorrespondingSourceObject: {fileID: 660074295215499852, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6282296219990498218}
   m_SourcePrefab: {fileID: 100100000, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
---- !u!95 &887877817180911223 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6089696188009949836, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
-  m_PrefabInstance: {fileID: 6399775877112421627}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5906924269636023991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 660074295215499852, guid: 1f8729ffe5e3ebb45b5c6b50bc6a2cec, type: 3}
@@ -112,21 +117,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalName: Goat
-  hp: 10
+  hp: 30
   walkSpeed: 2
   runSpeed: 2
   turningSpeed: 2
   walkTime: 3
-  waitTime: 5
+  waitTime: 2
   runTime: 2
   deadTime: 1
-  anim: {fileID: 887877817180911223}
-  sound_Normal:
-  - {fileID: 8300000, guid: c3b8e6bcba7780b459a254e495e4bc35, type: 3}
-  - {fileID: 8300000, guid: 3be298f555c2d354bba31447c1bd876d, type: 3}
-  - {fileID: 8300000, guid: 45e74223cc22bcd449af0a17d4cd9c27, type: 3}
-  sound_Hurt: 
-  sound_Dead: 
+  anim: {fileID: 0}
+  sound_Normal: []
+  sound_Hurt: Goat_Hurt
+  sound_Dead: Goat_Dead
 --- !u!82 &3941869631776795081
 AudioSource:
   m_ObjectHideFlags: 0
@@ -302,3 +304,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.67008305, y: 1.4089807, z: 1.6481018}
   m_Center: {x: -0.0447917, y: 0.645984, z: 0.19516277}
+--- !u!114 &8535701601851806697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906924269636023991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d21356c801dc52439bde722ee39093f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItem:
+  - {fileID: 4179205776943551302, guid: f821c31ae4932be4b8276b396f3c743a, type: 3}
+  - {fileID: 1032942817933048823, guid: 7ca91c42d10294449b9354587fae948b, type: 3}
+  - {fileID: 3517465817000159781, guid: c0039e446a48a2f4190a506e5c07d018, type: 3}
+  ps: {fileID: 7369230038912516806, guid: 1b54688403dfaac4d91ac940a6d0cbe7, type: 3}
+--- !u!114 &-6282296219990498218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906924269636023991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab59d3417a43d604fb6be0db0d80d647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 130
+  viewDistance: 10
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
