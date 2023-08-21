@@ -22,6 +22,7 @@ public class TPSCharaterController : MonoBehaviour
     public bool punchReady = true;
     public bool axeReady = false;
     public bool pickaxeReady = false;
+    public bool torchReady = false;
 
     [SerializeField] private GameObject[] gameObjects;
     public Dictionary<string, GameObject> ObjDict = new Dictionary<string, GameObject>();
@@ -31,6 +32,7 @@ public class TPSCharaterController : MonoBehaviour
     {
         ObjDict.Add("axe", gameObjects[0]);
         ObjDict.Add("pickaxe", gameObjects[1]);
+        ObjDict.Add("torch", gameObjects[2]);
         
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -131,7 +133,7 @@ public class TPSCharaterController : MonoBehaviour
 
     public void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && !isHit && punchReady)
+        if (Input.GetMouseButtonDown(0) && !isHit && punchReady && !torchReady)
         {
             isHit = true;
             animator.SetTrigger("attack");
