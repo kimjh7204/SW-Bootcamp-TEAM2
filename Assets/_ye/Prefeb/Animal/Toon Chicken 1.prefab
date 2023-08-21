@@ -82,7 +82,7 @@ MonoBehaviour:
   walkTime: 2
   waitTime: 2
   runTime: 2
-  deadTime: 0
+  deadTime: 1
   anim: {fileID: 9030605301170042851}
   sound_Normal:
   - {fileID: 8300000, guid: 41a36f40cd32da94db4fd5e7a8762405, type: 3}
