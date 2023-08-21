@@ -17,6 +17,7 @@ public class TPSCharaterController : MonoBehaviour
     private bool isJump = false;
     private bool isDeath = false;
     private bool isHit = false;
+    private bool isHurt = false;
 
     public TrailRenderer trailEffect;
     public bool punchReady = true;
@@ -54,7 +55,7 @@ public class TPSCharaterController : MonoBehaviour
     
     void Update()
     {
-        if (!isDeath && !GetComponent<Gathering>().ingGathering)
+        if (!isDeath && !GetComponent<Gathering>().ingGathering && !isHurt)
         {
             Move();
             jump();
@@ -162,6 +163,24 @@ public class TPSCharaterController : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         attackCollider.enabled = false;
         isHit = false;
+    }
+    
+    public void Damage(int _dmg)
+    {
+        if (!isDeath)
+        {
+            HPBar.curHp -= _dmg;
+            isHurt = true;
+            // SoundManager.instance.PlaySound(sound_Hurt);
+            animator.SetTrigger("Hurt");
+            StartCoroutine(HurtDelay());
+        }
+    }
+    
+    IEnumerator HurtDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        isHurt = false;
     }
     
     private void OnDeath()
