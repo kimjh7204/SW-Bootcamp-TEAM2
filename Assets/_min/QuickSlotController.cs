@@ -15,7 +15,11 @@ public class QuickSlot : MonoBehaviour
     // private Attackable attackable;
 
     GameObject axe;
-
+    
+    [SerializeField] private string fireSound;
+    [SerializeField] private string axeSound;
+    [SerializeField] private string pickaxeSound;
+    [SerializeField] private string torchSound;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +77,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("axe", true);
                 theWeaponManager.SetItem("torch", false);
+                SoundManager.instance.PlaySound(axeSound);
                 Attackable.dmg = 20;
             }
             else if (quickSlots[selectedSlot].item.itemName == "PickAxeItem")
@@ -87,6 +92,7 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", true);
                 theWeaponManager.SetItem("torch", false);
+                SoundManager.instance.PlaySound(pickaxeSound);
                 Attackable.dmg = 25;
             }
             else if (quickSlots[selectedSlot].item.itemName == "TorchItem")
@@ -101,6 +107,8 @@ public class QuickSlot : MonoBehaviour
                 theWeaponManager.SetItem("axe", false);
                 theWeaponManager.SetItem("pickaxe", false);
                 theWeaponManager.SetItem("torch", true);
+                SoundManager.instance.PlaySound(fireSound);
+                StartCoroutine(TorchSoundDelay());
                 Attackable.dmg = 10;
             }
             else
@@ -131,6 +139,15 @@ public class QuickSlot : MonoBehaviour
             theWeaponManager.pickaxeReady = false;
             theWeaponManager.torchReady = false;
             Attackable.dmg = 10;
+        }
+        
+        IEnumerator TorchSoundDelay()
+        {
+            while (theWeaponManager.torchReady)
+            {
+                SoundManager.instance.PlaySound(torchSound);
+                yield return new WaitForSeconds(3.3f);
+            }
         }
     }
 

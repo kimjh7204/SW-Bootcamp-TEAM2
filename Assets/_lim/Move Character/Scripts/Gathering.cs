@@ -11,6 +11,7 @@ public class Gathering : MonoBehaviour
     public bool isGathering = false;
     public bool ingGathering = false;
 
+    [SerializeField] private string gatheringSound;
 
     
     void Update()
@@ -25,6 +26,7 @@ public class Gathering : MonoBehaviour
             animator.SetTrigger("gathering");
             ingGathering = true;
             StartCoroutine(GatheringDelay());
+            SoundManager.instance.PlaySound(gatheringSound);
         }
     }
 
