@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         slots = go_SlotParent.GetComponentsInChildren<Slot>();
+        inventoryActivated = false;
     }
 
     // Update is called once per frame
