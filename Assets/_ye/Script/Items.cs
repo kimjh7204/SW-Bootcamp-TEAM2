@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "New Item/item")]
-public class Items : ScriptableObject  // 게임 오브젝트에 붙일 필요 X 
+public class Items : ScriptableObject  
 {
-    public enum ItemType  // 아이템 유형
+    public enum ItemType  
     {
         Equipment,
         Used,
@@ -13,10 +13,11 @@ public class Items : ScriptableObject  // 게임 오브젝트에 붙일 필요 X
         ETC,
     }
 
-    public string itemName; // 아이템의 이름
-    public ItemType itemType; // 아이템 유형
-    public Sprite itemImage; // 아이템의 이미지(인벤 토리 안에서 띄울)
-    public GameObject itemPrefab;  // 아이템의 프리팹 (아이템 생성시 프리팹으로 찍어냄)
+    public string itemName; 
+    public ItemType itemType; 
+    public Sprite itemImage; 
+    public GameObject itemPrefab; 
 
-    public string weaponType;  // 무기 유형
+    public string weaponType;  
+
 }
