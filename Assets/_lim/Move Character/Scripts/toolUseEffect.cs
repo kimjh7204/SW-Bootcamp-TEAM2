@@ -8,8 +8,8 @@ public class toolUseEffect : MonoBehaviour
     private GameObject effect_prefabs;
     [SerializeField]
     private SphereCollider coll;
-    
-    private int destroyTime = 4;
+
+    private int destroyTime = 1;
     
     private void OnTriggerEnter(Collider collider)
     {

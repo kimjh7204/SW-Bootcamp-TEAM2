@@ -40310,7 +40310,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40356,10 +40356,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
-      propertyPath: m_TagString
-      value: Character
-      objectReference: {fileID: 0}
     - target: {fileID: 3463420785476940584, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: gatheringSound
       value: Gathering
@@ -40388,6 +40384,10 @@ PrefabInstance:
       propertyPath: swingSound
       value: Swing
       objectReference: {fileID: 0}
+    - target: {fileID: 5944842690049987883, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 5952114140956135642, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: actionText
       value: 
@@ -40396,6 +40396,14 @@ PrefabInstance:
       propertyPath: theinventory
       value: 
       objectReference: {fileID: 431087835}
+    - target: {fileID: 7681092848862243814, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617165932600942823, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+      propertyPath: effect_prefabs
+      value: 
+      objectReference: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52791,7 +52799,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1227221078 stripped
 MonoBehaviour:

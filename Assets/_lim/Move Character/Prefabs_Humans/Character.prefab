@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c62b50304a66d440bf22712a82c9bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect_prefabs: {fileID: 7160248851571522142, guid: dd6e0a08817e0844485f7f7923742b1d, type: 3}
+  effect_prefabs: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
   coll: {fileID: 1943115142139339851}
 --- !u!1 &90716451578292149
 GameObject:
@@ -1256,7 +1256,7 @@ Transform:
   - {fileID: 1349988991}
   - {fileID: 8998179692610694076}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4540229000190281644
 Animator:
@@ -1294,7 +1294,11 @@ MonoBehaviour:
   cameraArm: {fileID: 0}
   AttackRange: {fileID: 909131514272153699}
   animator: {fileID: 0}
-  trailEffect: {fileID: 0}
+  swingSound: Swing
+  moveSound: Move
+  jumpSound: Jump
+  dieSound: Die
+  punchSound: Punch
   punchReady: 1
   axeReady: 0
   pickaxeReady: 0
@@ -1318,6 +1322,7 @@ MonoBehaviour:
   animator: {fileID: 4540229000190281644}
   isGathering: 0
   ingGathering: 0
+  gatheringSound: Gathering
 --- !u!114 &5952114140956135642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,8 +1341,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  actionText: {fileID: 1533679628263788492, guid: e325e4fbbcadde649959331945628a99, type: 3}
-  theinventory: {fileID: 606654932786371789, guid: 4739d8205c9807340bd670b021892414, type: 3}
+  actionText: {fileID: 0}
+  theinventory: {fileID: 0}
 --- !u!54 &5944842690049987883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1363,7 +1368,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &3151608749114327992
 CapsuleCollider:
