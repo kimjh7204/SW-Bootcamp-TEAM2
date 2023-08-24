@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class TPSCharaterController : MonoBehaviour
 {
@@ -46,6 +48,7 @@ public class TPSCharaterController : MonoBehaviour
         animator = GetComponent<Animator>();
         attackCollider = AttackRange.GetComponent<Collider>();
         attackCollider.enabled = false;
+        HPBar.curHp = 100f;
     }
 
     public void SetItem(string objectName, bool isActive)
@@ -211,6 +214,7 @@ public class TPSCharaterController : MonoBehaviour
         isHurt = false;
     }
     
+    public string diescene = "GameOverScene";
     private void OnDeath()
     {
         if (HPBar.curHp <= 0)
@@ -218,8 +222,14 @@ public class TPSCharaterController : MonoBehaviour
             isDeath = true;
             animator.SetTrigger("death");
             SoundManager.instance.PlaySound(dieSound);
-            
+            StartCoroutine(DeathDelay());
         }
+    }
+
+    IEnumerator DeathDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(diescene);
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -232,11 +242,6 @@ public class TPSCharaterController : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("floor")) return;
         isJump = true;
-        
-        
     }
-
-    
-    
     
 }
